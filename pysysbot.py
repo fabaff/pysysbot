@@ -27,26 +27,48 @@ import os
 class pySysBot(JabberBot):
     """
     This is a simple Jabber bot that can show you some details and
-    information of the machine it is running on and about yourself.
+    information of the machine it is running on.
     
-    Contact: Fabian Affolter <fabian at bernewireless.net>
+    Contact: You <you at some-domain.tld>
     """
-    @botcmd
-    def echo( self, mess, args):
-        """Returns passed arguments"""
-        return args
+    def top_of_help_message(self):
+        """Returns a string that forms the top of the help message"""
+        return "pySysBot"
 
+    def bottom_of_help_message(self):
+        """Returns a string that forms the bottom of the help message"""
+        return 'Version: 0.1'
+#Bot commands
     @botcmd
     def time( self, mess, args):
         """Displays current server time"""
         return str(datetime.datetime.now())
 
+    @botcmd
+    def uptime(self, mess, args):
+        """Displays the server uptime"""
+        uptime = open('/proc/uptime').read().split()[0]
+        # This is heavily based on the work of Hubert Chathi and his System status bot.
+        uptime = float(uptime)
+        (uptime,secs) = (int(uptime / 60), uptime % 60)
+        (uptime,mins) = divmod(uptime,60)
+        (days,hours) = divmod(uptime,24)
+
+        uptime = 'Uptime: %d day%s, %d hour%s %02d min%s' % (days, days != 1 
+            and 's' or '', hours, hours != 1 and 's' or '', mins,
+            mins != 1 and 's' or '')
+        return uptime
 
     @botcmd
-    def welcome( self, mess, args):
-        """Returns passed arguments"""
-        return args
-
+    def server(self, mess, args):
+        """Displays server information"""
+        server = os.uname()
+        data = "System: \t" + server[0] + \
+            "\n" +"FQDN: \t" + server[1] + \
+            "\n" +"Kernel: \t" + server[2] + \
+            "\n" +"Data: \t" + server[3] + \
+            "\n" +"Arch: \t" + server[4]
+        return data
  
 username = 'jabber username'
 password = 'jabber account password'
