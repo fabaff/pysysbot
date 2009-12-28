@@ -1,0 +1,13 @@
+  2009-12-28 Fabian Affolter <fabian@bernewireless.net>
+
+ * AUTHORS~, pysysbot.py~: Remove temp files
+
+ * tutorial/pyfortunebot.py: Reworked description
+
+ * AUTHORS~, pysysbot.py~, tutorial/pyfortunebot.py: pyfortunebot added
+
+ * AUTHORS: AUTHORS added
+
+ * COPYING: COPYING file added
+
+ * README: README file added

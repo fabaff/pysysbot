@@ -22,7 +22,8 @@
 # 
 from jabberbot import JabberBot, botcmd
 import datetime
-import os
+import os, sys
+import ConfigParser
 
 class pySysBot(JabberBot):
     """
@@ -38,6 +39,7 @@ class pySysBot(JabberBot):
     def bottom_of_help_message(self):
         """Returns a string that forms the bottom of the help message"""
         return 'Version: 0.1'
+
 #Bot commands
     @botcmd
     def time( self, mess, args):
@@ -70,7 +72,49 @@ class pySysBot(JabberBot):
             "\n" +"Arch: \t" + server[4]
         return data
  
-username = 'jabber username'
-password = 'jabber account password'
-bot = pySysBot(username,password)
-bot.serve_forever()
+def read_config(file, config_jabber={}):
+    """
+    Read the configuration data from user's home directory.
+    Create an example file if it doesn't exist.
+    """
+
+    if not(os.path.exists(CONFIG_FILE)):
+        print '~/.my' + BOT_NAME + ' does not exist.'
+        myfile = open(CONFIG_FILE, "w") 
+        configparse = ConfigParser.ConfigParser()
+        configparse.add_section(BOT_NAME)
+        print 'Please enter your jabber username and your password.'
+        username_in = raw_input('Username: ').strip()
+        password_in = raw_input('Password: ').strip()
+        if len(username_in) == 0 and len(password_in) == 0:
+            configparse.set(BOT_NAME, 'username', 'CHANGE_ME')
+            configparse.set(BOT_NAME, 'password', 'NOT_SET')
+            print 'Please edit ~/.my' + BOT_NAME + ' afterwards to match your'
+            print 'settings if you do not have a jabber account at the moment.'
+        else:
+            configparse.set(BOT_NAME, 'username', username_in)
+            configparse.set(BOT_NAME, 'password', password_in)
+            print '~/.my' + BOT_NAME + ' created.'
+        configparse.write(myfile)
+        myfile.close()
+        sys.exit()
+
+    else:       
+        configparse = ConfigParser.ConfigParser()
+        configparse.read(file)
+        config_jabber['username'] = configparse.get(BOT_NAME, 'username')
+        config_jabber['password'] = configparse.get(BOT_NAME, 'password')
+        config_data.append(config_jabber)
+
+    return config_data
+
+def main():
+    config = read_config(CONFIG_FILE)
+    bot = pySysBot(config[0]['username'], config[0]['password'])
+    bot.serve_forever()
+
+if __name__ == '__main__':
+    BOT_NAME = 'pysysbot'
+    CONFIG_FILE = os.path.expanduser("~") + '/.my' + BOT_NAME
+    config_data = []
+    main()
