@@ -19,7 +19,7 @@
 # Author: Fabian Affolter <fabian at bernewireless.net>
 #
 # Requires: python-jabberbot
-# 
+#
 from jabberbot import JabberBot, botcmd
 import datetime
 import os, sys
@@ -80,7 +80,7 @@ def read_config(file, config_jabber={}):
 
     if not(os.path.exists(CONFIG_FILE)):
         print '~/.my' + BOT_NAME + ' does not exist.'
-        myfile = open(CONFIG_FILE, "w") 
+        configfile = open(CONFIG_FILE, "w")
         configparse = ConfigParser.ConfigParser()
         configparse.add_section(BOT_NAME)
         print 'Please enter your jabber username and your password.'
@@ -95,11 +95,11 @@ def read_config(file, config_jabber={}):
             configparse.set(BOT_NAME, 'username', username_in)
             configparse.set(BOT_NAME, 'password', password_in)
             print '~/.my' + BOT_NAME + ' created.'
-        configparse.write(myfile)
-        myfile.close()
+        configparse.write(configfile)
+        configfile.close()
         sys.exit()
 
-    else:       
+    else:
         configparse = ConfigParser.ConfigParser()
         configparse.read(file)
         config_jabber['username'] = configparse.get(BOT_NAME, 'username')
