@@ -71,13 +71,20 @@ class pySysBot(JabberBot):
             "\n" +"Data: \t" + server[3] + \
             "\n" +"Arch: \t" + server[4]
         return data
+
+    @botcmd
+    def load(self, mess, args):
+        """Displays the server load over the last 1, 5, and 15 minutes"""
+        load = os.getloadavg()
+        return load
  
 def read_config(file, config_jabber={}):
     """
     Read the configuration data from user's home directory.
     Create an example file if it doesn't exist.
+    
+    Based on MythJabberbot (http://www.ian-barton.com/wiki/MythTV/MythJabberbot)
     """
-
     if not(os.path.exists(CONFIG_FILE)):
         print '~/.my' + BOT_NAME + ' does not exist.'
         configfile = open(CONFIG_FILE, "w")
