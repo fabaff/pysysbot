@@ -21,21 +21,21 @@
 # Requires: python-jabberbot
 # 
 from jabberbot import JabberBot, botcmd
-import os
+import datetime
 
-class pyWhoBot(JabberBot):
+class pyTimeBot(JabberBot):
     """
-    This is a simple Jabber bot that shows you who is logged in.
+    This is a simple Jabber bot that shows you the server time.
     
     Contact: You <you at some-domain.tld>
     """
     @botcmd
-    def who(self, mess, args):
-        """Display who's currently logged in"""
-        who = os.popen('/usr/bin/who').read().strip()
-        return who
+    def time( self, mess, args):
+        """Displays current server time"""
+        return datetime.datetime.today().strftime('%A, %d. %B %Y %H:%M:%S')
+
  
 username = 'jabber username'
 password = 'jabber account password'
-bot = pyWhoBot(username,password)
+bot = pyTimeBot(username,password)
 bot.serve_forever()
