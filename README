@@ -1,0 +1,21 @@
+pysysbot: A simple python jabber bot 
+------------------------------------
+
+This python jabber (XMPP) bot is based on the jabberbot framework 
+(http://thpinfo.com/2007/python-jabberbot/).  The bot is capable to
+display details about the system it is running on. 
+
+This is bot contains a lot of parts used in a German tutorial about the
+the jabberbot framework on http://www.swissjabber.org.
+ 
+Goals
+-----
+ 
+* Just show some information about the system
+ 
+Requirements
+------------
+ 
+* python-jabberbot
+ 
+simpserial is licensed under GPLv3+, for more details check COPYING. 
