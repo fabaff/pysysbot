@@ -22,23 +22,28 @@
 # 
 from jabberbot import JabberBot, botcmd
 import os
+import datetime
 
-class pySysInfoBot(JabberBot):
+class pyUptimeBot(JabberBot):
     """
-    This is a simple Jabber bot that shows you the details about
-    your server.
+    This is a simple Jabber bot that shows you the uptime of your server.
     
     Contact: You <you at some-domain.tld>
     """
     @botcmd
-    def server(self, mess, args):
-        """Displays server information"""
-        server = os.uname()
-        data = "System: \t" + server[0] + "\n" +"FQDN: \t" + server[1] + "\n" +"Kernel: \t" + server[2] + "\n" +"Data: \t" + server[3] + "\n" +"Arch: \t" + server[4]
-        return data
+    def uptime(self, mess, args):
+        """Displays the server uptime"""
+        uptime = open('/proc/uptime').read().split()[0]
+        # This is heavily based on the work of Hubert Chathi and his System status bot.
+        uptime = float(uptime)
+        (uptime,secs) = (int(uptime / 60), uptime % 60)
+        (uptime,mins) = divmod(uptime,60)
+        (days,hours) = divmod(uptime,24)
 
+        uptime = 'Uptime: %d day%s, %d hour%s %02d min%s' % (days, days != 1 and 's' or '', hours, hours != 1 and 's' or '', mins, mins != 1 and 's' or '')
+        return uptime
 
 username = 'jabber username'
 password = 'jabber account password'
-bot = pySysInfoBot(username,password)
+bot = pyUptimeBot(username,password)
 bot.serve_forever()
