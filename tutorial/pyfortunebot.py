@@ -25,8 +25,7 @@ import os
 
 class pyFortuneBot(JabberBot):
     """
-    This is a simple Jabber bot that can show you some details and
-    information of the machine it is running on and about yourself.
+    This is a simple Jabber bot that can tell you a fortune.
     
     Contact: You <you at some-domain.tld>
     """
