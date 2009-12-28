@@ -40,7 +40,9 @@ class pyUptimeBot(JabberBot):
         (uptime,mins) = divmod(uptime,60)
         (days,hours) = divmod(uptime,24)
 
-        uptime = 'Uptime: %d day%s, %d hour%s %02d min%s' % (days, days != 1 and 's' or '', hours, hours != 1 and 's' or '', mins, mins != 1 and 's' or '')
+        uptime = 'Uptime: %d day%s, %d hour%s %02d min%s' % (days, days != 1 
+            and 's' or '', hours, hours != 1 and 's' or '', mins,
+            mins != 1 and 's' or '')
         return uptime
 
 username = 'jabber username'
