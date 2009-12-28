@@ -34,7 +34,11 @@ class pySysInfoBot(JabberBot):
     def server(self, mess, args):
         """Displays server information"""
         server = os.uname()
-        data = "System: \t" + server[0] + "\n" +"FQDN: \t" + server[1] + "\n" +"Kernel: \t" + server[2] + "\n" +"Data: \t" + server[3] + "\n" +"Arch: \t" + server[4]
+        data = "System: \t" + server[0] + \
+            "\n" + "FQDN: \t" + server[1] + \
+            "\n" + "Kernel: \t" + server[2] + \
+            "\n" + "Data: \t" + server[3] + \
+            "\n" + "Arch: \t" + server[4]
         return data
 
 
