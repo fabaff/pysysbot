@@ -34,7 +34,8 @@ class pyUptimeBot(JabberBot):
     def uptime(self, mess, args):
         """Displays the server uptime"""
         uptime = open('/proc/uptime').read().split()[0]
-        # This is heavily based on the work of Hubert Chathi and his System status bot.
+        # This is heavily based on the work of Hubert Chathi and his 
+        # System status bot.
         uptime = float(uptime)
         (uptime,secs) = (int(uptime / 60), uptime % 60)
         (uptime,mins) = divmod(uptime,60)
