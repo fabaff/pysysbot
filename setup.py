@@ -22,7 +22,6 @@
 from distutils.core import setup
 
 if __name__ == '__main__':
-
     setup(
         name='pysysbot',
         version='0.0.1',
@@ -38,11 +37,11 @@ if __name__ == '__main__':
         url='http://github.com/fabaff/pysysbot',
         license='GPLv3+',
         platforms='Linux',
-        
-        packages = ['pysysbot'],
-        package_dir = {'pysysot':'src/pysysbot'},
-        scripts = ['bin/pysysbot'],
- #       data_files = [
+
+        packages = [''],
+        package_dir = {'': 'src'},
+        scripts = ['pysysbot'],
+         #       data_files = [
             #('share/doc/pysysbot-0.0.1',['AUTHORS', 'README', 'COPYING', 'ChangeLog']),
             #('share/man/man1/', ['man/pysysbot.1'])
             #],
