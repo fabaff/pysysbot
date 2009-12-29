@@ -41,7 +41,7 @@ if __name__ == '__main__':
         
         scripts = ['bin/pysysbot'],
         package_dir = {'':'lshellmodule'},
-        packages = ['pysysbot'],
+        package = ['pysysbot'],
         data_files = [
             ('share/doc/'+PACKAGE+'-'+VERSION+'/',['AUTHORS', 'README', 'COPYING', 'ChangeLog']),
             ('share/man/man1/', ['man/pysysbot.1'])
