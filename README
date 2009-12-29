@@ -1,5 +1,5 @@
-pysysbot: A simple python jabber bot 
-------------------------------------
+pysysbot: A simple python jabber bot for getting system information
+-------------------------------------------------------------------
 
 This python jabber (XMPP) bot is based on the jabberbot framework 
 (http://thpinfo.com/2007/python-jabberbot/).  The bot is capable to
