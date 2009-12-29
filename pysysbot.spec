@@ -8,7 +8,7 @@ Summary:        A simple python jabber bot for getting system information
 Group:          Applications/Internet
 License:        GPLv3+
 URL:            http://github.com/fabaff/pysysbot
-Source0:        %{name}-%{version}.tar.bz2
+Source0:        http://cloud.github.com/downloads/fabaff/%{name}/%{name}-%{version}.tar.bz2
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildArch:      noarch
 
