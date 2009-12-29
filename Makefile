@@ -18,4 +18,4 @@ archive: tag
 	@echo "Everything done.  All files are ready to upload." 
 
 clean:
-	rm -f *~ *bz2 *sha1sum
+	rm -f *~ *bz2 *sha1sum src/*~ man/*~
