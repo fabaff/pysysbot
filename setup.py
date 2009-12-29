@@ -26,7 +26,7 @@ if __name__ == '__main__':
     setup(
         name='pysysbot',
         version='0.0.1',
-        description='Pysthon based system jabber bot',
+        description='Python based system jabber bot',
         long_description="""This python jabber (XMPP) bot is based on \
             the jabberbot framework (http://thpinfo.com/2007/python-jabberbot/).\
             The bot is capable to display details about the system it \
@@ -42,10 +42,10 @@ if __name__ == '__main__':
         packages = ['pysysbot'],
         package_dir = {'pysysot':'src/pysysbot'},
         scripts = ['bin/pysysbot'],
-        data_files = [
-            ('share/doc/pysysbot-0.0.1/',['AUTHORS', 'README', 'COPYING', 'ChangeLog']),
-            ('share/man/man1/', ['man/pysysbot.1'])
-            ],
+ #       data_files = [
+            #('share/doc/pysysbot-0.0.1',['AUTHORS', 'README', 'COPYING', 'ChangeLog']),
+            #('share/man/man1/', ['man/pysysbot.1'])
+            #],
          
         keywords=['Jabber','XMPP','System','python'],
         classifiers=[
