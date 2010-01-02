@@ -21,5 +21,6 @@ Requirements
 ------------
  
 * python-jabberbot
+* pystatgrab
  
 pysysbot is licensed under GPLv3+, for more details check COPYING. 
