@@ -22,8 +22,11 @@
 #
 from jabberbot import JabberBot, botcmd
 import datetime
-import os, sys
+import os
+import sys
+import socket
 import ConfigParser
+import urllib2
 
 __version__ = '0.2'
 
@@ -41,13 +44,18 @@ class pySysBot(JabberBot):
 
     def bottom_of_help_message(self):
         """Returns a string that forms the bottom of the help message"""
-        return "Python %s / %s %s / %s %s" % ('.'.join([str(v) for v in sys.version_info[:3]]), BOT_NAME, __version__, os.uname()[0], os.uname()[2])
+        return "Python %s / %s %s / %s %s" % \
+            ('.'.join([str(v) for v in sys.version_info[:3]]),
+             BOT_NAME,
+             __version__,
+             os.uname()[0],
+             os.uname()[2])
 
 #Bot commands
     @botcmd
     def time( self, mess, args):
         """Displays current server time"""
-        return str(datetime.datetime.now())
+        return datetime.datetime.today().strftime('%A, %d. %B %Y %H:%M:%S')
 
     @botcmd
     def uptime(self, mess, args):
@@ -78,11 +86,14 @@ class pySysBot(JabberBot):
     @botcmd
     def load(self, mess, args):
         """Displays the server load over the last 1, 5, and 15 minutes"""
+        loaddata = []
         load = os.getloadavg()
+        for i in load:
+                loaddata.append(i)
         load_data = "Load average of the system" + \
-                 "\n" +" 1 min: \t" + load[0] + \
-                 "\n" +" 5 min: \t" + load[1] + \
-                 "\n" +"15 min: \t" + load[2] + \
+                "\n" +" 1 min: \t" + str(loaddata[0]) + \
+                "\n" +" 5 min: \t" + str(loaddata[1]) + \
+                "\n" +"15 min: \t" + str(loaddata[2])
         return load_data
 
     @botcmd
