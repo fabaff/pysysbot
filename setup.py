@@ -38,8 +38,8 @@ if __name__ == '__main__':
         license='GPLv3+',
         platforms='Linux',
 
-        packages = [''],
-        package_dir = {'pysysbot': 'src'},
+        packages = ['pysysbot'],
+        package_dir = {'': 'src'},
         scripts = ['pysysbot'],
          #       data_files = [
             #('share/doc/pysysbot-0.0.1',['AUTHORS', 'README', 'COPYING', 'ChangeLog']),
