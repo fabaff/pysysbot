@@ -68,18 +68,22 @@ class pySysBot(JabberBot):
     def server(self, mess, args):
         """Displays server information"""
         server = os.uname()
-        data = "System: \t" + server[0] + \
+        server_data = "System: \t" + server[0] + \
             "\n" +"FQDN: \t" + server[1] + \
             "\n" +"Kernel: \t" + server[2] + \
             "\n" +"Data: \t" + server[3] + \
             "\n" +"Arch: \t" + server[4]
-        return data
+        return server_data
 
     @botcmd
     def load(self, mess, args):
         """Displays the server load over the last 1, 5, and 15 minutes"""
         load = os.getloadavg()
-        return load
+        load_data = "Load average of the system" + \
+                 "\n" +" 1 min: \t" + load[0] + \
+                 "\n" +" 5 min: \t" + load[1] + \
+                 "\n" +"15 min: \t" + load[2] + \
+        return load_data
 
     @botcmd
     def ip(self, mess, args):
