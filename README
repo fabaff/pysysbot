@@ -3,7 +3,9 @@ pysysbot: A simple python jabber bot for getting system information
 
 This python jabber (XMPP) bot is based on the jabberbot framework 
 (http://thpinfo.com/2007/python-jabberbot/).  The bot is capable to
-display details about the system it is running on. 
+display details about the system it is running on.  If you don't
+want or can stay connected through SSH all the time this is an easy
+way to get information about the remote system.
 
 This is bot contains a lot of parts used in a German tutorial about the
 the jabberbot framework on http://www.swissjabber.org.
@@ -11,7 +13,9 @@ the jabberbot framework on http://www.swissjabber.org.
 Goals
 -----
  
-* Just show some information about the system
+* Show some information about the system
+* No nedd for a permanent SSH connection to the remote system
+* Can serve to many users
  
 Requirements
 ------------
