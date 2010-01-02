@@ -25,6 +25,9 @@ import datetime
 import os, sys
 import ConfigParser
 
+__version__ = '0.2'
+
+
 class pySysBot(JabberBot):
     """
     This is a simple Jabber bot that can show you some details and
@@ -38,7 +41,7 @@ class pySysBot(JabberBot):
 
     def bottom_of_help_message(self):
         """Returns a string that forms the bottom of the help message"""
-        return 'Version: 0.1'
+        return "Python %s / %s %s / %s %s" % ('.'.join([str(v) for v in sys.version_info[:3]]), BOT_NAME, __version__, os.uname()[0], os.uname()[2])
 
 #Bot commands
     @botcmd
