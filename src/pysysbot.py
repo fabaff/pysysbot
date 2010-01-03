@@ -27,6 +27,7 @@ import sys
 import socket
 import ConfigParser
 import urllib2
+import statgrab
 
 __version__ = '0.2'
 
@@ -91,10 +92,22 @@ class pySysBot(JabberBot):
         for i in load:
                 loaddata.append(i)
         load_data = "Load average of the system" + \
-                "\n" +" 1 min: \t" + str(loaddata[0]) + \
-                "\n" +" 5 min: \t" + str(loaddata[1]) + \
-                "\n" +"15 min: \t" + str(loaddata[2])
+                "\n" +"  1 min: \t" + str(loaddata[0]) + \
+                "\n" +"  5 min: \t" + str(loaddata[1]) + \
+                "\n" +" 15 min: \t" + str(loaddata[2])
         return load_data
+
+    @botcmd
+    def processes(self, mess, args):
+        """Displays the processes of the server"""
+        process = statgrab.sg_get_process_count()
+        load_process = "Processes of the system" + \
+                "\n" +" zombie: \t" +  str(process['zombie']) + \
+                "\n" +" running: \t" + str(process['running']) + \
+                "\n" +" stopped: \t" + str(process['stopped']) + \
+                "\n" +" sleeping: \t" + str(process['sleeping']) + \
+                "\n" +" total: \t\t" + str(process['total'])
+        return load_process
 
     @botcmd
     def ip(self, mess, args):
