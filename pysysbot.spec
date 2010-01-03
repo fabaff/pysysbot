@@ -16,11 +16,14 @@ BuildRequires:  python-devel
 BuildRequires:  python-setuptools
 
 Requires:       python-jabberbot
+Requires:       pystatgrab
 
 %description
 This python jabber (XMPP) bot is based on the jabberbot framework 
 (http://thpinfo.com/2007/python-jabberbot/).  The bot is capable to
-display details about the system it is running on. 
+display details about the system it is running on.  If you don't
+want or can stay connected through SSH all the time this is an easy
+way to get information about the remote system.
 
 
 %prep
@@ -52,3 +55,4 @@ rm -rf %{buildroot}
 %changelog
 * Sat Dec 27 2008 Fabian Affolter <fabian@bernewireless.net> - 0.0.1-1
 - Initial spec for Fedora
+
