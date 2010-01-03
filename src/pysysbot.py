@@ -103,11 +103,11 @@ class pySysBot(JabberBot):
         """Displays the processes of the server"""
         process = statgrab.sg_get_process_count()
         load_process = "Processes" + \
-                "\n" + " Zombie: \t"   +  str(process['zombie'])  + \
-                "\n" + " Running: \t"  + str(process['running'])  + \
-                "\n" +  " Stopped: \t" + str(process['stopped'])  + \
-                "\n" +" Sleeping: \t"  + str(process['sleeping']) + \
-                "\n" + " Total: \t\t"  + str(process['total'])
+                "\n" + " Zombie: \t"    + str(process['zombie'])  + \
+                "\n" + " Running: \t"   + str(process['running'])  + \
+                "\n" + " Stopped: \t"   + str(process['stopped'])  + \
+                "\n" + " Sleeping: \t"  + str(process['sleeping']) + \
+                "\n" + " Total: \t\t"   + str(process['total'])
         return load_process
 
     @botcmd
