@@ -102,12 +102,37 @@ class pySysBot(JabberBot):
         """Displays the processes of the server"""
         process = statgrab.sg_get_process_count()
         load_process = "Processes" + \
-                "\n" +" zombie: \t" +  str(process['zombie']) + \
-                "\n" +" running: \t" + str(process['running']) + \
-                "\n" +" stopped: \t" + str(process['stopped']) + \
-                "\n" +" sleeping: \t" + str(process['sleeping']) + \
-                "\n" +" total: \t\t" + str(process['total'])
+                "\n" + " Zombie: \t"   +  str(process['zombie'])  + \
+                "\n" + " Running: \t"  + str(process['running'])  + \
+                "\n" +  " Stopped: \t" + str(process['stopped'])  + \
+                "\n" +" Sleeping: \t"  + str(process['sleeping']) + \
+                "\n" + " Total: \t\t"  + str(process['total'])
         return load_process
+
+    @botcmd
+    def mem(self, mess, args):
+        """Displays the memory status of the server"""
+        swapstat = statgrab.sg_get_swap_stats()
+        memstat = statgrab.sg_get_mem_stats()
+        #Some calculation to get the perc of the data
+        memdiff = memstat['total'] - memstat['free']
+        memfloat = float (memdiff) / float(memstat['total'])
+        memperc = int(round (memfloat * 100))
+        swapdiff = swapstat['total'] - swapstat['free']
+        swapfloat = float (swapdiff) / float(swapstat['total'])
+        swapperc = int(round (swapfloat * 100))
+        mem_process = "Memory status" + \
+                "\n" + " Mem Total : \t" + str(memstat['total']/1048576) + \
+                " MB \t \t Swap Total : \t" + str(swapstat['total']/1048576) + \
+                " MB" + \
+                "\n" + " Mem Used : \t" + str(memstat['used']/1048576) + \
+                " MB \t \t Swap Used : \t" + str(swapstat['used']/1048576) + \
+                " MB" + \
+                "\n" + " Mem Free : \t" + str(memstat['free']/1048576)  + \
+                " MB \t \t \t Swap Free : \t" + str(swapstat['free']/1048576) + \
+                " MB" + "\n" + " Mem Used : \t" + str(memperc) + " %" + \
+                " \t \t \t Swap Used : \t" + str(swapperc) + " %" 
+        return mem_process
 
     @botcmd
     def ip(self, mess, args):
