@@ -20,14 +20,18 @@
 #
 # Requires: python-jabberbot
 #
-from jabberbot import JabberBot, botcmd
-import datetime
-import os
-import sys
-import socket
-import ConfigParser
-import urllib2
-import statgrab
+try:
+    from jabberbot import JabberBot, botcmd
+    import datetime
+    import os
+    import sys
+    import socket
+    import ConfigParser
+    import urllib2
+    import statgrab
+except ImportError:
+	print """Cannot find all required libraries please install them and try again"""
+	raise SystemExit
 
 __version__ = '0.2'
 
