@@ -1,4 +1,7 @@
-%{!?python_sitelib: %global python_sitelib %(%{__python} -c "from distutils.sysconfig import get_python_lib; print get_python_lib()")}
+%if ! (0%{?fedora} > 12 || 0%{?rhel} > 5)
+%{!?python_sitelib: %global python_sitelib %(%{__python} -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())")}
+%endif
+
 
 Name:           pysysbot
 Version:        0.0.1
@@ -46,13 +49,12 @@ rm -rf %{buildroot}
 %files
 %defattr(-,root,root,-)
 %doc AUTHORS ChangeLog COPYING README
-#%{_mandir}/man*/*.*
+##%{_mandir}/man*/*.*
 %{_bindir}/%{name}
-#%{python_sitelib}/pysysbot/
+%{python_sitelib}/pysysbot/
 %{python_sitelib}/pysysbot*.egg-info
 
 
 %changelog
 * Sat Dec 27 2008 Fabian Affolter <fabian@bernewireless.net> - 0.0.1-1
 - Initial spec for Fedora
-
