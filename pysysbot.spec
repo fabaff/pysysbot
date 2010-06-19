@@ -50,8 +50,9 @@ rm -rf %{buildroot}
 %doc AUTHORS ChangeLog COPYING README
 %{_mandir}/man*/*.*
 %{_bindir}/%{name}
-%{python_sitelib}/pysysbot/
-%{python_sitelib}/pysysbot*.egg-info
+%{python_sitelib}/*
+#%{python_sitelib}/pysysbot/
+#%{python_sitelib}/pysysbot*.egg-info
 
 
 %changelog
