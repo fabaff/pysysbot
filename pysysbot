@@ -20,4 +20,4 @@
 
 import pysysbot
 
-pysysbot.module.start ()
+pysysbot.start ()
