@@ -38,13 +38,13 @@ if __name__ == '__main__':
         license='GPLv3+',
         platforms='Linux',
 
-        packages = [''],
-        package_dir = {'': 'src/pysysbot'},
+        packages = ['pysysbot'],
+        package_dir = {'': 'src'},
         scripts = ['pysysbot'],
-        data_files = [
-            ('share/doc/pysysbot-0.0.1', ['AUTHORS', 'README', 'COPYING', 'ChangeLog']), 
-            ('share/man/man1/', ['man/pysysbot.1'])
-            ],
+         #       data_files = [
+            #('share/doc/pysysbot-0.0.1',['AUTHORS', 'README', 'COPYING', 'ChangeLog']),
+            #('share/man/man1/', ['man/pysysbot.1'])
+            #],
          
         keywords=['Jabber','XMPP','System','python'],
         classifiers=[

@@ -1,0 +1,3 @@
+include script/pysysbot AUTHORS COPYING README
+recursive-include man *
+recursive-include src/pysysbot *

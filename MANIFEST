@@ -3,5 +3,7 @@ COPYING
 README
 pysysbot
 setup.py
-src/__init__.py
-src/pysysbot.py
+man/pysysbot.1
+src/pysysbot/__init__.py
+src/pysysbot/pysysbot.py
+src/pysysbot/pysysbot.py~
