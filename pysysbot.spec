@@ -39,7 +39,7 @@ way to get information about the remote system.
 %install
 rm -rf %{buildroot}
 %{__python} setup.py install --skip-build --root="%{buildroot}"
-
+install -Dp -m 0644 man/%{name}.1 %{buildroot}%{_mandir}/man1/%{name}.1
 
 %clean
 rm -rf %{buildroot}
