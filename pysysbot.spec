@@ -3,7 +3,7 @@
 %endif
 
 Name:           pysysbot
-Version:        0.0.1
+Version:        0.0.2
 Release:        1%{?dist}
 Summary:        A simple python jabber bot for getting system information
 
@@ -50,13 +50,14 @@ rm -rf %{buildroot}
 %files
 %defattr(-,root,root,-)
 %doc AUTHORS ChangeLog COPYING README
-%{_mandir}/man*/*.*
+%{_mandir}/man*/*.1*
 %{_bindir}/%{name}
 %{python_sitelib}/*
-#%{python_sitelib}/pysysbot/
-#%{python_sitelib}/pysysbot*.egg-info
 
 
 %changelog
-* Sat Dec 27 2008 Fabian Affolter <fabian@bernewireless.net> - 0.0.1-1
+* Thu Nov 11 2010 Fabian Affolter <fabian@bernewireless.net> - 0.0.2-1
+- Updated to new upstream version 0.0.2
+
+* Sat Dec 27 2009 Fabian Affolter <fabian@bernewireless.net> - 0.0.1-1
 - Initial spec for Fedora

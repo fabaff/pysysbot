@@ -20,35 +20,36 @@
 #
 
 from distutils.core import setup
+from glob import glob
 
 if __name__ == '__main__':
     setup(
         name='pysysbot',
-        version='0.0.1',
+        version='0.0.2',
         description='Python based system jabber bot',
         long_description="""This python jabber (XMPP) bot is based on \
             the jabberbot framework (http://thpinfo.com/2007/python-jabberbot/).\
             The bot is capable to display details about the system it \
             is running on. """,
         author='Fabian Affolter',
-        author_email='fabian@bernewireless.net',
+        author_email='fabian@affolter-engineering.ch',
         maintainer='Fabian Affolter',
-        maintainer_email='fabian@bernewireless.net',
+        maintainer_email='fabian@affolter-engineering.ch',
         url='http://github.com/fabaff/pysysbot',
         license='GPLv3+',
         platforms='Linux',
 
-        packages = [''],
-        package_dir = {'': 'src/pysysbot/'},
+        packages = ['pysysbot'],
+        package_dir = {'pysysbot': 'src/pysysbot'},
         scripts = ['pysysbot'],
         data_files = [
-            ('share/doc/pysysbot-0.0.1', ['AUTHORS', 'README', 'COPYING', 'ChangeLog']), 
-            ('share/man/man1/', ['man/pysysbot.1'])
+            #('share/doc/pysysbot-0.0.1', ['AUTHORS', 'README', 'COPYING', 'ChangeLog']), 
+            ('share/man/man1', glob("man/pysysbot.1"))
             ],
          
         keywords=['Jabber','XMPP','System','python'],
         classifiers=[
-                'Development Status :: 0.1 - Alpha',
+                'Development Status :: 0.0.2 - Alpha',
                 'Environment :: Console'
                 'Intended Audience :: Advanced End Users',
                 'Intended Audience :: System Administrators',
