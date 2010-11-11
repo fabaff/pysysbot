@@ -43,7 +43,7 @@ if __name__ == '__main__':
         package_dir = {'pysysbot': 'src/pysysbot'},
         scripts = ['pysysbot'],
         data_files = [
-            #('share/doc/pysysbot-0.0.1', ['AUTHORS', 'README', 'COPYING', 'ChangeLog']), 
+            ('share/doc/pysysbot-0.0.2', ['AUTHORS', 'README', 'COPYING', 'ChangeLog']), 
             ('share/man/man1', glob("man/pysysbot.1"))
             ],
          
