@@ -21,13 +21,13 @@
 # Requires: python-jabberbot
 #
 try:
+    from jabberbot import JabberBot, botcmd
     import datetime
     import os
     import sys
     import socket
     import ConfigParser
     import urllib2
-    from jabberbot import JabberBot, botcmd
     import statgrab
 except ImportError:
 	print """Cannot find all required libraries please install them and try again"""
