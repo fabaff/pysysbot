@@ -1,7 +1,7 @@
 #!/usr/bin/python
 #
 # pysysbot - A simple python jabber bot for getting system information
-# Copyright (c) 2009 Fabian Affolter <fabian@bernewireless.net>
+# Copyright (c) 2009-2010 Fabian Affolter <fabian@affolter-engineering.ch>
 #
 # All rights reserved.
 #
@@ -30,7 +30,7 @@ try:
     from jabberbot import JabberBot, botcmd
     import statgrab
 except ImportError:
-	print """Cannot find all required libraries please install them and try again"""
+	print """Cannot find all required libraries please install them and try again."""
 	raise SystemExit
 
 __version__ = '0.2'
@@ -59,12 +59,12 @@ class pySysBot(JabberBot):
 #Bot commands
     @botcmd
     def time( self, mess, args):
-        """Displays current server time"""
+        """Displays current server time."""
         return datetime.datetime.today().strftime('%A, %d. %B %Y %H:%M:%S')
 
     @botcmd
     def uptime(self, mess, args):
-        """Displays the server uptime"""
+        """Displays the server uptime."""
         uptime = open('/proc/uptime').read().split()[0]
         # This is heavily based on the work of Hubert Chathi and his System status bot.
         uptime = float(uptime)
@@ -79,7 +79,7 @@ class pySysBot(JabberBot):
 
     @botcmd
     def server(self, mess, args):
-        """Displays server information"""
+        """Displays details about server."""
         server = os.uname()
         server_data = "System information" + \
                 "\n" + " System: \t" + server[0] + \
@@ -91,7 +91,7 @@ class pySysBot(JabberBot):
 
     @botcmd
     def load(self, mess, args):
-        """Displays the server load over the last 1, 5, and 15 minutes"""
+        """Displays the server load over the last 1, 5, and 15 minutes."""
         loaddata = []
         load = os.getloadavg()
         for i in load:
@@ -104,7 +104,7 @@ class pySysBot(JabberBot):
 
     @botcmd
     def processes(self, mess, args):
-        """Displays the processes of the server"""
+        """Displays the processes of the server."""
         process = statgrab.sg_get_process_count()
         load_process = "Processes" + \
                 "\n" + " Zombie: \t"    + str(process['zombie'])  + \
@@ -116,7 +116,7 @@ class pySysBot(JabberBot):
 
     @botcmd
     def mem(self, mess, args):
-        """Displays the memory status of the server"""
+        """Displays the memory status of the server."""
         swapstat = statgrab.sg_get_swap_stats()
         memstat = statgrab.sg_get_mem_stats()
         #Some calculation to get the perc of the data
@@ -141,7 +141,7 @@ class pySysBot(JabberBot):
 
     @botcmd
     def ip(self, mess, args):
-        """Displays the IP Addresses of the server"""
+        """Displays the IP Addresses of the server."""
         #Source: http://commandline.org.uk/python/how-to-find-out-ip-address-in-python/
         s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         s.connect(('google.com', 0))
