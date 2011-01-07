@@ -1,20 +1,14 @@
+pysysbot (0.0.3) Fri, 07 Jan 2011 21:38:33 +0100
+
+  * New upstream release
+
+ -- Fabian Affolter <fabian@affolter-engineering.ch>
+
 pysysbot (0.0.3)
 
   * New upstream release
 
  -- Fabian Affolter <fabian@affolter-engineering.ch> Fri, 07 Jan 2011 21:25:53 +0100
-
-pysysbot (0.0.3-0.0) unstable; urgency=low
-
-  * New upstream release
-
- -- Fabian Affolter <fabian@affolter-engineering.ch>  Fri, 07 Jan 2011 21:22:00 +0100
-
-pysysbot (0.0.3-0.0) unstable; urgency=low
-
-  * New upstream release
-
- -- Fabian Affolter <fabian@affolter-engineering.ch>  Fri, 07 Jan 2011 21:21:40 +0100
 
 commit 76e3493b95f4476393584958118ab6b4ca83d40b
 Author: Fabian Affolter <fabian@bernewireless.net>
