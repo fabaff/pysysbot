@@ -7,8 +7,6 @@
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
-      version="0.0.3",
-      version="0.0.3",
 #
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -24,32 +22,32 @@ from glob import glob
 
 if __name__ == '__main__':
     setup(
-        name='pysysbot',
-      version="0.0.3",
-        description='Python based system jabber bot',
-        long_description="""This python jabber (XMPP) bot is based on \
+        name = 'pysysbot',
+        version = "0.0.3",
+        description = 'Python based system jabber bot',
+        long_description = """This python jabber (XMPP) bot is based on \
             the jabberbot framework (http://thpinfo.com/2007/python-jabberbot/).\
             The bot is capable to display details about the system it \
             is running on. """,
-        author='Fabian Affolter',
-        author_email='fabian@affolter-engineering.ch',
-        maintainer='Fabian Affolter',
-        maintainer_email='fabian@affolter-engineering.ch',
-        url='http://github.com/fabaff/pysysbot',
-        license='GPLv3+',
-        platforms='Linux',
+        author = 'Fabian Affolter',
+        author_email = 'fabian@affolter-engineering.ch',
+        maintainer = 'Fabian Affolter',
+        maintainer_email = 'fabian@affolter-engineering.ch',
+        url = 'http://www.affolter-engineering.ch/index.php?page=pysysbot',
+        license = 'GPLv3+',
+        platforms = 'Linux',
 
         packages = ['pysysbot'],
-        package_dir = {'pysysbot': 'src/pysysbot'},
+        package_dir = {'': 'src'},
         scripts = ['pysysbot'],
         data_files = [
-            ('share/doc/pysysbot-0.0.2', ['AUTHORS', 'README', 'COPYING', 'ChangeLog']), 
+            ('share/doc/pysysbot-0.0.3', ['AUTHORS', 'README', 'COPYING', 'ChangeLog']), 
             ('share/man/man1', glob("man/pysysbot.1"))
             ],
          
-        keywords=['Jabber','XMPP','System','python'],
-        classifiers=[
-                'Development Status :: 0.0.2 - Alpha',
+        keywords = ['Jabber','XMPP','System','python'],
+        classifiers = [
+                'Development Status :: 0.0.3 - Alpha',
                 'Environment :: Console'
                 'Intended Audience :: Advanced End Users',
                 'Intended Audience :: System Administrators',
