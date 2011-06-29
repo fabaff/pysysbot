@@ -1,7 +1,5 @@
-#!/usr/bin/python
-#
 # pysysbot - A simple python jabber bot for getting system information
-# Copyright (c) 2009-2010 Fabian Affolter <fabian@affolter-engineering.ch>
+# Copyright (c) 2009-2011 Fabian Affolter <fabian@affolter-engineering.ch>
 #
 # All rights reserved.
 #
@@ -38,8 +36,6 @@ class pySysBot(JabberBot):
     """
     This is a simple Jabber bot that can show you some details and
     information of the machine it is running on.
-    
-    Contact: You <you at some-domain.tld>
     """
     def top_of_help_message(self):
         """Returns a string that forms the top of the help message"""
@@ -66,9 +62,9 @@ class pySysBot(JabberBot):
         uptime = open('/proc/uptime').read().split()[0]
         # This is heavily based on the work of Hubert Chathi and his System status bot.
         uptime = float(uptime)
-        (uptime,secs) = (int(uptime / 60), uptime % 60)
-        (uptime,mins) = divmod(uptime,60)
-        (days,hours) = divmod(uptime,24)
+        (uptime, secs) = (int(uptime / 60), uptime % 60)
+        (uptime, mins) = divmod(uptime, 60)
+        (days, hours) = divmod(uptime, 24)
 
         uptime = 'Uptime: %d day%s, %d hour%s %02d min%s' % (days, days != 1 
             and 's' or '', hours, hours != 1 and 's' or '', mins,
@@ -79,7 +75,7 @@ class pySysBot(JabberBot):
     def server(self, mess, args):
         """Displays details about server."""
         server = os.uname()
-        server_data = "System information" + \
+        server_data = "\nSystem information" + \
                 "\n" + " System: \t" + server[0] + \
                 "\n" + " FQDN:   \t"   + server[1] + \
                 "\n" + " Kernel: \t" + server[2] + \
@@ -94,7 +90,7 @@ class pySysBot(JabberBot):
         load = os.getloadavg()
         for i in load:
                 loaddata.append(i)
-        load_data = "Load average of the system" + \
+        load_data = "\nLoad average of the system" + \
                 "\n" +"  1 min: \t" + str(loaddata[0]) + \
                 "\n" +"  5 min: \t" + str(loaddata[1]) + \
                 "\n" +" 15 min: \t" + str(loaddata[2])
@@ -104,8 +100,8 @@ class pySysBot(JabberBot):
     def processes(self, mess, args):
         """Displays the processes of the server."""
         process = statgrab.sg_get_process_count()
-        load_process = "Processes" + \
-                "\n" + " Zombie: \t"    + str(process['zombie'])  + \
+        load_process = "\nProcesses" + \
+                "\n" + " Zombie: \t\t"    + str(process['zombie'])  + \
                 "\n" + " Running: \t"   + str(process['running'])  + \
                 "\n" + " Stopped: \t"   + str(process['stopped'])  + \
                 "\n" + " Sleeping: \t"  + str(process['sleeping']) + \
@@ -115,16 +111,17 @@ class pySysBot(JabberBot):
     @botcmd
     def mem(self, mess, args):
         """Displays the memory status of the server."""
+        # Stolen from some 
         swapstat = statgrab.sg_get_swap_stats()
         memstat = statgrab.sg_get_mem_stats()
-        #Some calculation to get the perc of the data
+        # Some calculation to get the perc of the data
         memdiff = memstat['total'] - memstat['free']
         memfloat = float (memdiff) / float(memstat['total'])
         memperc = int(round (memfloat * 100))
         swapdiff = swapstat['total'] - swapstat['free']
         swapfloat = float (swapdiff) / float(swapstat['total'])
         swapperc = int(round (swapfloat * 100))
-        mem_process = "Memory status" + \
+        mem_process = "\nMemory status" + \
                 "\n" + " Mem Total : \t" + str(memstat['total']/1048576) + \
                 " MB \t \t Swap Total : \t" + str(swapstat['total']/1048576) + \
                 " MB" + \
@@ -140,19 +137,18 @@ class pySysBot(JabberBot):
     @botcmd
     def ip(self, mess, args):
         """Displays the IP Addresses of the server."""
-        #Source: http://commandline.org.uk/python/how-to-find-out-ip-address-in-python/
+        # Source: http://commandline.org.uk/python/how-to-find-out-ip-address-in-python/
         s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         s.connect(('google.com', 0))
         int_ipaddr = s.getsockname()[0]
         ext_ipaddr = urllib2.urlopen("http://whatismyip.com/automation/n09230945.asp").read()
-        data_ipaddr = "Internal IP address: \t" + int_ipaddr + \
+        data_ipaddr = "\nInternal IP address: \t" + int_ipaddr + \
                "\n" +"External IP address: \t" + ext_ipaddr
         return data_ipaddr
 
 def main():
     config = settings.read_config(os.path.expanduser("~") + '/.mypysysbot')
     bot = pySysBot(config[0]['username'], config[0]['password'])
-    #bot = pySysBot('fabian.a@swissjabber.ch','speech123')
     bot.serve_forever()
 
 if __name__ == '__main__':

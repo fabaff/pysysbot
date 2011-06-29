@@ -1,7 +1,5 @@
-#!/usr/bin/python
-#
 # pysysbot - A simple python jabber bot for getting system information
-# Copyright (c) 2009-2010 Fabian Affolter <fabian@affolter-engineering.ch>
+# Copyright (c) 2009-2011 Fabian Affolter <fabian@affolter-engineering.ch>
 #
 # All rights reserved.
 #
@@ -19,6 +17,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import os
+import sys
 import ConfigParser
 
 def read_config(file, config_jabber={}):
