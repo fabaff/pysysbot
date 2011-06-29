@@ -141,7 +141,7 @@ class pySysBot(JabberBot):
         s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         s.connect(('google.com', 0))
         int_ipaddr = s.getsockname()[0]
-        ext_ipaddr = urllib2.urlopen("http://whatismyip.com/automation/n09230945.asp").read()
+        ext_ipaddr = urllib2.urlopen("http://automation.whatismyip.com/n09230945.asp").read()
         data_ipaddr = "\nInternal IP address: \t" + int_ipaddr + \
                "\n" +"External IP address: \t" + ext_ipaddr
         return data_ipaddr
