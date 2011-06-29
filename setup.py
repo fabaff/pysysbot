@@ -1,7 +1,5 @@
-#!/usr/bin/python
-#
 # pysysbot - A simple python jabber bot for getting system information
-# Copyright (c) 2009 Fabian Affolter <fabian@affolter-engineering.ch>
+# Copyright (c) 2009-2011 Fabian Affolter <fabian@affolter-engineering.ch>
 #
 # All rights reserved.
 #
@@ -23,7 +21,7 @@ from glob import glob
 if __name__ == '__main__':
     setup(
         name = 'pysysbot',
-        version = "0.0.3",
+      version="0.0.3",
         description = 'Python based system jabber bot',
         long_description = """This python jabber (XMPP) bot is based on \
             the jabberbot framework (http://thpinfo.com/2007/python-jabberbot/).\
