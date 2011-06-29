@@ -21,7 +21,7 @@ from glob import glob
 if __name__ == '__main__':
     setup(
         name = 'pysysbot',
-      version="0.0.3",
+      version="0.0.4",
         description = 'Python based system jabber bot',
         long_description = """This python jabber (XMPP) bot is based on \
             the jabberbot framework (http://thpinfo.com/2007/python-jabberbot/).\
@@ -39,13 +39,13 @@ if __name__ == '__main__':
         package_dir = {'': 'src'},
         scripts = ['bin/pysysbot'],
         data_files = [
-            ('share/doc/pysysbot-0.0.3', ['AUTHORS', 'README', 'COPYING', 'ChangeLog']), 
+            #('share/doc/pysysbot-0.0.4', ['AUTHORS', 'README', 'COPYING', 'ChangeLog']), 
             ('share/man/man1', glob("man/pysysbot.1"))
             ],
          
         keywords = ['Jabber','XMPP','System','python'],
         classifiers = [
-                'Development Status :: 0.0.3 - Alpha',
+                'Development Status :: 0.0.4 - Alpha',
                 'Environment :: Console'
                 'Intended Audience :: Advanced End Users',
                 'Intended Audience :: System Administrators',
