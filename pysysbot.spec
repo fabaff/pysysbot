@@ -3,18 +3,18 @@
 %endif
 
 Name:           pysysbot
-Version:        0.0.2
+Version:        0.0.4
 Release:        1%{?dist}
 Summary:        A simple python jabber bot for getting system information
 
 Group:          Applications/Internet
 License:        GPLv3+
 URL:            http://gitorious.org/pysysbot
-Source0:        http://cloud.github.com/downloads/fabaff/%{name}/%{name}-%{version}.tar.gz
+Source0:        /html/files/pysysbot/%{name}/%{name}-%{version}.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildArch:      noarch
 
-BuildRequires:  python-devel
+BuildRequires:  python2-devel
 BuildRequires:  python-setuptools
 
 Requires:       python-jabberbot
@@ -41,7 +41,7 @@ way to get information about the remote system.
 rm -rf %{buildroot}
 %{__python} setup.py install --skip-build --root="%{buildroot}"
 install -Dp -m 0644 man/%{name}.1 %{buildroot}%{_mandir}/man1/%{name}.1
-#doc files at the wrong place
+# doc files at the wrong place
 rm %{buildroot}%{_defaultdocdir}/%{name}-%{version}/{AUTHORS,ChangeLog,COPYING,README}
 
 
@@ -58,6 +58,12 @@ rm -rf %{buildroot}
 
 
 %changelog
+* Wed Jun 29 2011 Fabian Affolter <fabian@bernewireless.net> - 0.0.4-1
+- Updated to new upstream version 0.0.4
+
+* Sun Apr 24 2011 Fabian Affolter <fabian@bernewireless.net> - 0.0.3-1
+- Updated to new upstream version 0.0.3
+
 * Thu Nov 11 2010 Fabian Affolter <fabian@bernewireless.net> - 0.0.2-1
 - Updated to new upstream version 0.0.2
 
