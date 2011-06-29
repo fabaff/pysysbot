@@ -10,7 +10,7 @@ Summary:        A simple python jabber bot for getting system information
 Group:          Applications/Internet
 License:        GPLv3+
 URL:            http://gitorious.org/pysysbot
-Source0:        /html/files/pysysbot/%{name}/%{name}-%{version}.tar.gz
+Source0:        http://files.affolter-engineering.ch/%{name}/%{name}-%{version}.tar.bz2
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildArch:      noarch
 
