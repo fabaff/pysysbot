@@ -1,6 +1,6 @@
 #!/usr/bin/python
 #
-# Copyright (c) 2009  Fabian Affolter, Swissjabber. 
+# Copyright (c) 2009-2013 Fabian Affolter <fabian at affolter-engineering.ch>
 # All rights reserved.
 #
 # This program is free software; you can redistribute it and/or modify
@@ -16,10 +16,8 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-# Author: Fabian Affolter <fabian at bernewireless.net>
-#
 # Requires: python-jabberbot
-# 
+#  
 from jabberbot import JabberBot, botcmd
 import os
 import datetime
