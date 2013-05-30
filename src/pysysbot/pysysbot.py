@@ -1,5 +1,7 @@
+# This file is part of pysysbot.
+
 # pysysbot - A simple python jabber bot for getting system information
-# Copyright (c) 2009-2011 Fabian Affolter <fabian@affolter-engineering.ch>
+# Copyright (c) 2009-2013 Fabian Affolter <fabian at affolter-engineering.ch>
 #
 # All rights reserved.
 #
@@ -38,21 +40,21 @@ class pySysBot(JabberBot):
     information of the machine it is running on.
     """
     def top_of_help_message(self):
-        """Returns a string that forms the top of the help message"""
+        """Returns a string that forms the top of the help message."""
         return "pySysBot"
 
     def bottom_of_help_message(self):
-        """Returns a string that forms the bottom of the help message"""
+        """Returns a string that forms the bottom of the help message."""
         return "Python %s / %s %s / %s %s" % \
             ('.'.join([str(v) for v in sys.version_info[:3]]),
              'pySysBot', #BOT_NAME,
-             '0.0.3', #__version__,
+             '0.0.4', #__version__,
              os.uname()[0],
              os.uname()[2])
 
 #Bot commands
     @botcmd
-    def time( self, mess, args):
+    def time(self, mess, args):
         """Displays current server time."""
         return datetime.datetime.today().strftime('%A, %d. %B %Y %H:%M:%S')
 
@@ -101,9 +103,9 @@ class pySysBot(JabberBot):
         """Displays the processes of the server."""
         process = statgrab.sg_get_process_count()
         load_process = "\nProcesses" + \
-                "\n" + " Zombie: \t\t"    + str(process['zombie'])  + \
-                "\n" + " Running: \t"   + str(process['running'])  + \
-                "\n" + " Stopped: \t"   + str(process['stopped'])  + \
+                "\n" + " Zombie: \t\t"  + str(process['zombie']) + \
+                "\n" + " Running: \t"   + str(process['running']) + \
+                "\n" + " Stopped: \t"   + str(process['stopped']) + \
                 "\n" + " Sleeping: \t"  + str(process['sleeping']) + \
                 "\n" + " Total: \t\t"   + str(process['total'])
         return load_process
