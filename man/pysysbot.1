@@ -1,4 +1,4 @@
-.TH "pysysbot" "1" "0.0.3" "Fabian Affolter" "Jabber bot for the displaying system details"
+.TH "pysysbot" "1" "0.0.5" "Fabian Affolter" "Jabber bot for the displaying system details"
 .SH "NAME"
 .LP 
 pysysbot \- A python based system information jabber bot
@@ -9,14 +9,39 @@ This python jabber (XMPP) bot is based on the jabberbot framework
 display details about the system it is running on.  Currently support
 load, network configuration, system time, uptime, users who are logged
 on, and kernel information.
-.SH "OPTIONS"
+.SH "SYNOPSIS"
 .LP 
 To run this program the standard way, please type:
 .LP 
-python pysysbot.py
+pysysbot
+.LP 
+If you run pysysbot for the first time, you be will be ask to provided your
+credentials for the XMPP/Jabber account you want to use.
+.LP
+.SH "EXAMPLES"
+.LP
+Open a chat with the user of your pysysbot. With sending a keyword you will
+get an answer from the bot back.
+.LP
+.IP "help"
+This gives you an overview of the available options.
+.IP "kernel"
+Kernel which is used.
+.IP "load"
+Displays the system load over the last 1, 5, and 15 minutes.
+.IP "mem"
+Memory status of the system.
+.IP "processes"
+Shows the processes of the system.
+.IP "system"
+Displays details about system.
+.IP "time"
+Current system time.
+.IP "uptime"
+The uptime of the system.
+.IP "version"
+Details about the bot.
+.LP
 .SH "AUTHORS"
 .LP 
 Fabian Affolter <fabian@affolter-engineering.ch>
-.SH "SEE ALSO"
-.LP 
-python-jabberbot(1)
