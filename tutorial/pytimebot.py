@@ -1,4 +1,4 @@
-#!/usr/bin/python
+from jabberbot import JabberBot, botcmd
 #
 # Copyright (c) 2009-2013 Fabian Affolter <fabian at affolter-engineering.ch>
 # All rights reserved.
@@ -18,8 +18,8 @@
 #
 # Requires: python-jabberbot
 # 
-from jabberbot import JabberBot, botcmd
 import datetime
+from jabberbot import JabberBot, botcmd
 
 class pyTimeBot(JabberBot):
     """
