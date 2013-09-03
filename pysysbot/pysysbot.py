@@ -135,17 +135,17 @@ class pySysBot(JabberBot):
                 " \t \t \t Swap Used : \t" + str(swapperc) + " %" 
         return mem_process
 
-    @botcmd
-    def ip(self, mess, args):
-        """Displays the IP Addresses of the server."""
-        # Source: http://commandline.org.uk/python/how-to-find-out-ip-address-in-python/
-        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        s.connect(('google.com', 0))
-        int_ipaddr = s.getsockname()[0]
-        ext_ipaddr = urllib2.urlopen("http://automation.whatismyip.com/n09230945.asp").read()
-        data_ipaddr = "\nInternal IP address: \t" + int_ipaddr + \
-               "\n" +"External IP address: \t" + ext_ipaddr
-        return data_ipaddr
+#    @botcmd
+#    def ip(self, mess, args):
+#        """Displays the IP Addresses of the server."""
+#        # Source: http://commandline.org.uk/python/how-to-find-out-ip-address-in-python/
+#        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+#        s.connect(('google.com', 0))
+#        int_ipaddr = s.getsockname()[0]
+#        ext_ipaddr = urllib2.urlopen("http://automation.whatismyip.com/n09230945.asp").read()
+#        data_ipaddr = "\nInternal IP address: \t" + int_ipaddr + \
+#               "\n" +"External IP address: \t" + ext_ipaddr
+#        return data_ipaddr
 
 def main():
     config = settings.read_config(os.path.expanduser("~") + '/.pysysbot')
