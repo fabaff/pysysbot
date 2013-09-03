@@ -54,12 +54,12 @@ class pySysBot(JabberBot):
 #Bot commands
     @botcmd
     def time(self, mess, args):
-        """Displays current server time."""
+        """Displays current system time."""
         return datetime.datetime.today().strftime('%A, %d. %B %Y %H:%M:%S')
 
     @botcmd
     def uptime(self, mess, args):
-        """Displays the server uptime."""
+        """Displays the system uptime."""
         uptime = open('/proc/uptime').read().split()[0]
         # This is heavily based on the work of Hubert Chathi and his System status bot.
         uptime = float(uptime)
@@ -86,7 +86,7 @@ class pySysBot(JabberBot):
 
     @botcmd
     def load(self, mess, args):
-        """Displays the server load over the last 1, 5, and 15 minutes."""
+        """Displays the system load over the last 1, 5, and 15 minutes."""
         loaddata = []
         load = os.getloadavg()
         for i in load:
@@ -99,7 +99,7 @@ class pySysBot(JabberBot):
 
     @botcmd
     def processes(self, mess, args):
-        """Displays the processes of the server."""
+        """Displays the processes of the system."""
         process = statgrab.sg_get_process_count()
         load_process = "\nProcesses" + \
                 "\n" + " Zombie: \t\t"  + str(process['zombie']) + \
@@ -111,7 +111,7 @@ class pySysBot(JabberBot):
 
     @botcmd
     def mem(self, mess, args):
-        """Displays the memory status of the server."""
+        """Displays the memory status of the system."""
         # Stolen from some 
         swapstat = statgrab.sg_get_swap_stats()
         memstat = statgrab.sg_get_mem_stats()
