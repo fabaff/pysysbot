@@ -73,16 +73,16 @@ class pySysBot(JabberBot):
         return uptime
 
     @botcmd
-    def server(self, mess, args):
-        """Displays details about server."""
-        server = os.uname()
-        server_data = "\nSystem information" + \
+    def system(self, mess, args):
+        """Displays details about system."""
+        system = os.uname()
+        system_data = "\nSystem information" + \
                 "\n" + " System: \t" + server[0] + \
                 "\n" + " FQDN:   \t"   + server[1] + \
                 "\n" + " Kernel: \t" + server[2] + \
                 "\n" + " Data:   \t"   + server[3] + \
                 "\n" + " Arch:   \t"   + server[4]
-        return server_data
+        return system_data
 
     @botcmd
     def load(self, mess, args):
