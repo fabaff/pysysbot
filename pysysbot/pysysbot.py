@@ -52,7 +52,7 @@ class pySysBot(JabberBot):
             __version__,
             '.'.join([str(v) for v in sys.version_info[:3]]),
             'Author: %s' % __author__,
-            'Web: http://affolter-engineering.ch'
+            'pysysbot is licensed under GPLv3+'
             )
         return version
 
