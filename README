@@ -13,14 +13,20 @@ jabberbot framework on http://www.swissjabber.org.
 Goals
 -----
  
-* Show some information about the system
-* No nedd for a permanent SSH connection to the remote system
-* Can serve for many users
+- Show some information about the system
+- No nedd for a permanent SSH connection to the remote system
+- Can serve for many users
  
 Requirements
 ------------
  
-* python-jabberbot
-* pystatgrab
+- python-jabberbot
+
+
+Resources
+---------
+
+Website:        http://affolter-engineering.ch/software-development/jabber-bots/
+git repository: https://gitorious.org/pysysbot
  
 pysysbot is licensed under GPLv3+, for more details check COPYING. 
