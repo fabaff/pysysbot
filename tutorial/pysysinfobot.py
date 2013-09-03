@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 #
 # Copyright (c) 2009-2013 Fabian Affolter <fabian at affolter-engineering.ch>
 # All rights reserved.
@@ -18,8 +18,8 @@
 #
 # Requires: python-jabberbot
 # 
-from jabberbot import JabberBot, botcmd
 import os
+from jabberbot import JabberBot, botcmd
 
 class pySysInfoBot(JabberBot):
     """
