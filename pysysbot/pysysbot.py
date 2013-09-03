@@ -33,6 +33,9 @@ except ImportError:
 	print """Cannot find all required libraries please install them and try again."""
 	raise SystemExit
 
+__version__ = '0.0.5'
+__author__ = 'Fabian Affolter <fabian@affolter-engineering.ch>'
+
 class pySysBot(JabberBot):
     """
     This is a simple Jabber bot that can show you some details and
@@ -40,16 +43,16 @@ class pySysBot(JabberBot):
     """
     def top_of_help_message(self):
         """Returns a string that forms the top of the help message."""
-        return "pySysBot"
+        return "pySysBot\n\n"
 
-    def bottom_of_help_message(self):
-        """Returns a string that forms the bottom of the help message."""
-        return "\nPython %s / %s %s / %s %s" % \
-            ('.'.join([str(v) for v in sys.version_info[:3]]),
-             'pySysBot', #BOT_NAME,
-             '0.0.5', #__version__,
-             os.uname()[0],
-             os.uname()[2])
+#    def bottom_of_help_message(self):
+#        """Returns a string that forms the bottom of the help message."""
+#        return "\n\%s %s / nPython %s / %s %s" % \
+#            (self.__class__.__name__,
+#             __version__,
+#             '.'.join([str(v) for v in sys.version_info[:3]]),
+#             os.uname()[0],
+#             os.uname()[2])
 
 #Bot commands
     @botcmd
