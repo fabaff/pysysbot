@@ -20,8 +20,10 @@ Goals
 Requirements
 ------------
  
-- python-jabberbot
+- python-jabberbot (http://thp.io/2007/python-jabberbot/)
+- pystatgrab (http://www.i-scream.org/pystatgrab/)
 
+$ sudo yum -y install python-jabberbot pystatgrab
 
 Resources
 ---------
