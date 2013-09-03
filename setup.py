@@ -21,7 +21,7 @@ from glob import glob
 if __name__ == '__main__':
     setup(
         name = 'pysysbot',
-        version="0.0.5",
+        version="0.1",
         description = 'Python based system jabber bot',
         long_description = """This python jabber (XMPP) bot is based on \
             the jabberbot framework (http://thpinfo.com/2007/python-jabberbot/).\
