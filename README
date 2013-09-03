@@ -15,7 +15,7 @@ Goals
  
 * Show some information about the system
 * No nedd for a permanent SSH connection to the remote system
-* Can serve to many users
+* Can serve for many users
  
 Requirements
 ------------
