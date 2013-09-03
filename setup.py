@@ -15,7 +15,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-from distutils.core import setup
+from setuptools import setup
 from glob import glob
 
 if __name__ == '__main__':
