@@ -43,7 +43,10 @@ if __name__ == '__main__':
             ('share/man/man1', glob('man/pysysbot.1')),
             ('lib/systemd/system', glob('data/pysysbot.service'))
             ],
-         
+        install_requires=[
+        'pystatgrab',
+        'jabberbot',
+        ],
         keywords = ['Jabber','XMPP','System','python'],
         classifiers = [
                 'Development Status :: 0.0.5 - Alpha',
