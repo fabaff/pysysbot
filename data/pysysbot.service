@@ -1,0 +1,10 @@
+[Unit]
+Description=A simple python jabber bot for getting system information
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/pysysbot
+
+[Install]
+WantedBy=multi-user.target
