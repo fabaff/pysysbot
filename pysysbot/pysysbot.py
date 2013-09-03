@@ -47,7 +47,7 @@ class pySysBot(JabberBot):
         return "\nPython %s / %s %s / %s %s" % \
             ('.'.join([str(v) for v in sys.version_info[:3]]),
              'pySysBot', #BOT_NAME,
-             '0.0.4', #__version__,
+             '0.0.5', #__version__,
              os.uname()[0],
              os.uname()[2])
 
