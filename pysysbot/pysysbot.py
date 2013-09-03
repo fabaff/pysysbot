@@ -149,7 +149,7 @@ class pySysBot(JabberBot):
 
 def main():
     config = settings.read_config(os.path.expanduser("~") + '/.pysysbot')
-    bot = pySysBot(config[0]['username'], config[0]['password'], debug=True)
+    bot = pySysBot(config[0]['username'], config[0]['password'], debug=False)
     bot.serve_forever()
 
 if __name__ == '__main__':
