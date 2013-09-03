@@ -80,11 +80,11 @@ class pySysBot(JabberBot):
         """Displays details about system."""
         system = os.uname()
         system_data = "\nSystem information" + \
-                "\n" + " System: \t" + server[0] + \
-                "\n" + " FQDN:   \t"   + server[1] + \
-                "\n" + " Kernel: \t" + server[2] + \
-                "\n" + " Data:   \t"   + server[3] + \
-                "\n" + " Arch:   \t"   + server[4]
+                "\n" + " Type:     " + system[0] + \
+                "\n" + " FQDN:    " + system[1] + \
+                "\n" + " Kernel:   " + system[2] + \
+                "\n" + " Data:     " + system[3] + \
+                "\n" + " Arch:     " + system[4]
         return system_data
 
     @botcmd
