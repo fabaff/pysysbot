@@ -27,7 +27,6 @@ try:
     import ConfigParser
     import urllib2
     from jabberbot import JabberBot, botcmd
-    import statgrab
     import settings
 except ImportError:
 	print """Cannot find all required libraries please install them and try again."""
@@ -45,22 +44,16 @@ class pySysBot(JabberBot):
         """Returns a string that forms the top of the help message."""
         return "pySysBot\n\n"
 
-#    def bottom_of_help_message(self):
-#        """Returns a string that forms the bottom of the help message."""
-#        return "\n\%s %s / nPython %s / %s %s" % \
-#            (self.__class__.__name__,
-#             __version__,
-#             '.'.join([str(v) for v in sys.version_info[:3]]),
-#             os.uname()[0],
-#             os.uname()[2])
-
 #Bot commands
     @botcmd
     def version(self, mess, args):
         """Details about the bot."""
-        version = '%s %s with Python %s' % (self.__class__.__name__,
+        version = '\n%s %s with Python %s\n%s\n%s' % (self.__class__.__name__,
             __version__,
-            '.'.join([str(v) for v in sys.version_info[:3]]))
+            '.'.join([str(v) for v in sys.version_info[:3]]),
+            'Author: %s' % __author__,
+            'Web: http://affolter-engineering.ch'
+            )
         return version
 
     @botcmd
