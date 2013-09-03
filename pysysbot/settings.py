@@ -36,8 +36,8 @@ def read_config(file, config_jabber={}):
         configparse = ConfigParser.ConfigParser()
         configparse.add_section(BOT_NAME)
         print 'Please enter your jabber username and your password.'
-        username_in = raw_input('Username: ').strip()
-        password_in = raw_input('Password: ').strip()
+        username_in = raw_input('Jabber ID (incl. TLD): ').strip()
+        password_in = raw_input('Jabber Password: ').strip()
         if len(username_in) == 0 and len(password_in) == 0:
             configparse.set(BOT_NAME, 'username', 'NOT SET')
             configparse.set(BOT_NAME, 'password', 'NOT SET')
