@@ -31,7 +31,7 @@ if __name__ == '__main__':
         author_email = 'fabian@affolter-engineering.ch',
         maintainer = 'Fabian Affolter',
         maintainer_email = 'fabian@affolter-engineering.ch',
-        url = 'http://www.affolter-engineering.ch/index.php?page=pysysbot',
+        url = 'http://affolter-engineering.ch/software-development/jabber-bots/',
         license = 'GPLv3+',
         platforms = 'Linux',
 
