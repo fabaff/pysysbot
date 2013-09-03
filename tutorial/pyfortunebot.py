@@ -18,8 +18,9 @@
 #
 # Requires: python-jabberbot
 # 
-from jabberbot import JabberBot, botcmd
 import os
+
+from jabberbot import JabberBot, botcmd
 
 class pyFortuneBot(JabberBot):
     """
