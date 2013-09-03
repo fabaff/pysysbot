@@ -111,7 +111,7 @@ class pySysBot(JabberBot):
 
     @botcmd
     def processes(self, mess, args):
-        """Shoes the processes of the system."""
+        """Shows the processes of the system."""
         process = statgrab.sg_get_process_count()
         load_process = "\nProcesses" + \
                 "\n" + " Zombie: \t\t"  + str(process['zombie']) + \
