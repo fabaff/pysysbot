@@ -56,13 +56,28 @@ class pySysBot(JabberBot):
 
 #Bot commands
     @botcmd
+    def version(self, mess, args):
+        """Details about the bot."""
+        version = '%s %s with Python %s' % (self.__class__.__name__,
+            __version__,
+            '.'.join([str(v) for v in sys.version_info[:3]]))
+        return version
+
+    @botcmd
+    def kernel(self, mess, args):
+        """Kernel which is used."""
+        kernel = os.uname()[2]
+        return kernel
+
+    @botcmd
     def time(self, mess, args):
-        """Displays current system time."""
-        return datetime.datetime.today().strftime('%A, %d. %B %Y %H:%M:%S')
+        """Current system time."""
+        ctime = datetime.datetime.today().strftime('%A, %d. %B %Y %H:%M:%S')
+        return ctime
 
     @botcmd
     def uptime(self, mess, args):
-        """Displays the system uptime."""
+        """The uptime of the system."""
         uptime = open('/proc/uptime').read().split()[0]
         # This is heavily based on the work of Hubert Chathi and his System status bot.
         uptime = float(uptime)
@@ -70,7 +85,7 @@ class pySysBot(JabberBot):
         (uptime, mins) = divmod(uptime, 60)
         (days, hours) = divmod(uptime, 24)
 
-        uptime = 'Uptime: %d day%s, %d hour%s %02d min%s' % (days, days != 1 
+        uptime = '%d day%s, %d hour%s %02d min%s' % (days, days != 1 
             and 's' or '', hours, hours != 1 and 's' or '', mins,
             mins != 1 and 's' or '')
         return uptime
@@ -102,7 +117,7 @@ class pySysBot(JabberBot):
 
     @botcmd
     def processes(self, mess, args):
-        """Displays the processes of the system."""
+        """Shoes the processes of the system."""
         process = statgrab.sg_get_process_count()
         load_process = "\nProcesses" + \
                 "\n" + " Zombie: \t\t"  + str(process['zombie']) + \
@@ -114,7 +129,7 @@ class pySysBot(JabberBot):
 
     @botcmd
     def mem(self, mess, args):
-        """Displays the memory status of the system."""
+        """Memory status of the system."""
         # Stolen from some 
         swapstat = statgrab.sg_get_swap_stats()
         memstat = statgrab.sg_get_mem_stats()
