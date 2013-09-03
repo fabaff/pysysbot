@@ -26,6 +26,7 @@ try:
     import socket
     import ConfigParser
     import urllib2
+    import pystatgrab
     from jabberbot import JabberBot, botcmd
     import settings
 except ImportError:
