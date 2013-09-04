@@ -26,13 +26,17 @@ get information about the remote system.
 
 %prep
 %setup -q
+rm -rf *.egg-info
 
 %build
 %{__python} setup.py build
 
 %install
 %{__python} setup.py install --skip-build --root="%{buildroot}"
-rm -rf %{buildroot}/%{_defaultdocdir}/%{name}
+install -Dp -m 0644 data/%{name}.service %{buildroot}%{_unitdir}/%{name}.service
+install -Dp -m 0644 data/%{name}.conf %{buildroot}%{_sysconfdir}/%{name}/%{name}.conf
+install -Dp -m 0644 man/%{name}.1 %{buildroot}%{_mandir}/man1/%{name}.1
+rm -rf %{buildroot}%{_defaultdocdir}
 
 %post
 %systemd_post %{name}.service
@@ -47,11 +51,13 @@ rm -rf %{buildroot}/%{_defaultdocdir}/%{name}
 %doc AUTHORS ChangeLog COPYING README
 %{_mandir}/man*/%{name}*.*
 %{_bindir}/%{name}
+%config(noreplace) %{_sysconfdir}/%{name}/%{name}.conf
 %{_unitdir}/%{name}.service
 %{python_sitelib}/*
 
 %changelog
 * Tue Sep 03 2013 Fabian Affolter <mail@fabian-affolter.ch> - 0.1-1
+- Simplified configuration file handling
 - Updated to new upstream release 0.1
 
 * Tue Sep 03 2013 Fabian Affolter <mail@fabian-affolter.ch> - 0.0.5-1
