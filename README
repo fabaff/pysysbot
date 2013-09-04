@@ -14,7 +14,7 @@ Goals
 -----
  
 - Show some information about the system
-- No nedd for a permanent SSH connection to the remote system
+- No need for a permanent SSH connection to the remote system
 - Can serve for many users
  
 Requirements
@@ -22,6 +22,8 @@ Requirements
  
 - python-jabberbot (http://thp.io/2007/python-jabberbot/)
 - pystatgrab (http://www.i-scream.org/pystatgrab/)
+
+All dependencies are available in the Fedora Package Collection.
 
 $ sudo yum -y install python-jabberbot pystatgrab
 
