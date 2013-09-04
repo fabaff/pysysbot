@@ -18,7 +18,6 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-#
 try:
     import datetime
     import os
@@ -160,7 +159,7 @@ class pySysBot(JabberBot):
 #        return data_ipaddr
 
 def main():
-    config = settings.read_config(os.path.expanduser("~") + '/.pysysbot')
+    config = settings.read_config('/etc/pysysbot/pysysbot.conf')
     bot = pySysBot(config[0]['username'], config[0]['password'], debug=False)
     bot.serve_forever()
 

@@ -21,41 +21,24 @@ import sys
 import ConfigParser
 
 def read_config(file, config_jabber={}):
-    """
-    Read the configuration data from user's home directory.
-    Create an example file if it doesn't exist.
-    
-    Based on MythJabberbot (http://www.ian-barton.com/wiki/MythTV/MythJabberbot)
-    """
-    BOT_NAME = 'pysysbot'
+    """Read the configuration data."""
     config_data = []
-    CONFIG_FILE = os.path.expanduser("~") + '/.' + BOT_NAME
-    if not(os.path.exists(CONFIG_FILE)):
-        print '~/.' + BOT_NAME + ' does not exist.'
-        configfile = open(CONFIG_FILE, "w")
-        configparse = ConfigParser.ConfigParser()
-        configparse.add_section(BOT_NAME)
-        print 'Please enter your jabber username and your password.'
-        username_in = raw_input('Jabber ID (incl. TLD): ').strip()
-        password_in = raw_input('Jabber Password: ').strip()
-        if len(username_in) == 0 and len(password_in) == 0:
-            configparse.set(BOT_NAME, 'username', 'NOT SET')
-            configparse.set(BOT_NAME, 'password', 'NOT SET')
-            print 'Please edit ~/.' + BOT_NAME + ' afterwards to match your'
-            print 'settings if you do not have a jabber account at the moment.'
-        else:
-            configparse.set(BOT_NAME, 'username', username_in)
-            configparse.set(BOT_NAME, 'password', password_in)
-            print '~/.' + BOT_NAME + ' created.'
-        configparse.write(configfile)
-        configfile.close()
-        sys.exit()
-
+    if not(os.path.exists(file)):
+        print 'pysysbot configuration file does not exist.'
     else:
         configparse = ConfigParser.ConfigParser()
         configparse.read(file)
-        config_jabber['username'] = configparse.get(BOT_NAME, 'username')
-        config_jabber['password'] = configparse.get(BOT_NAME, 'password')
+        config_jabber['username'] = configparse.get('pysysbot', 'username')
+        if config_jabber['username'] == 'NOT_SET':
+            print 'Please edit your configuration file (%s) and set your JID' \
+                % (file)
+            sys.exit(0)
+        config_jabber['password'] = configparse.get('pysysbot', 'password')
+        if config_jabber['password'] == 'NOT_SET':
+            print 'Please edit your configuration file (%s) and set your Jabber password' \
+                % (file)
+            sys.exit(0)
+            
         config_data.append(config_jabber)
 
     return config_data
