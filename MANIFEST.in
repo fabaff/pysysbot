@@ -1,3 +1,4 @@
-include script/pysysbot AUTHORS ChangeLog COPYING README
+include AUTHORS COPYING ChangeLog README
+include bin/pysysbot
+recursive-include data * 
 recursive-include man *
-recursive-include src/pysysbot *

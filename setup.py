@@ -34,22 +34,16 @@ if __name__ == '__main__':
         url = 'http://affolter-engineering.ch/software-development/jabber-bots/',
         license = 'GPLv3+',
         platforms = 'Linux',
-
         packages = ['pysysbot'],
-        #package_dir = {'': 'pysysbot'},
         scripts = ['bin/pysysbot'],
-        data_files = [
-            ('share/doc/pysysbot', ['AUTHORS', 'README', 'COPYING', 'ChangeLog']), 
-            ('share/man/man1', glob('man/pysysbot.1')),
-            ('lib/systemd/system', glob('data/pysysbot.service'))
-            ],
+        include_package_data = True,
         install_requires=[
         'pystatgrab',
         'jabberbot',
         ],
         keywords = ['Jabber','XMPP','System','python'],
         classifiers = [
-                'Development Status :: 0.0.5 - Alpha',
+                'Development Status :: 0.1 - Alpha',
                 'Environment :: Console'
                 'Intended Audience :: Advanced End Users',
                 'Intended Audience :: System Administrators',
