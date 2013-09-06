@@ -22,7 +22,9 @@ jabberbot framework on http://www.swissjabber.org.
 
 All dependencies are available in the Fedora Package Collection.
 
-$ sudo yum -y install python-jabberbot pystatgrab
+```
+sudo yum -y install python-jabberbot pystatgrab
+```
 
 ##Installation
 
