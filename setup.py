@@ -35,6 +35,9 @@ if __name__ == '__main__':
         platforms = 'Linux',
         packages = ['pysysbot'],
         scripts = ['bin/pysysbot'],
+#        entry_points = {
+#            'console_scripts': ['pysysbot = pysysbot:main']
+#        },
         include_package_data = True,
         install_requires=[
         'pystatgrab',
