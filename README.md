@@ -60,4 +60,4 @@ sudo systemctl start pysysbot.service
 - [Website](http://affolter-engineering.ch/pysysbot/)
 - [git repository](https://gitorious.org/pysysbot)
  
-`pysysbot` is licensed under MIT, for more details check COPYING. 
+`pysysbot` is licensed under GPLv3+, for more details check COPYING. 
