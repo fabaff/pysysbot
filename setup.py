@@ -43,15 +43,17 @@ if __name__ == '__main__':
         ],
         keywords = ['Jabber','XMPP','System','python'],
         classifiers = [
-                'Development Status :: 0.1 - Alpha',
+                'Development Status :: 4 - Beta',
                 'Environment :: Console'
-                'Intended Audience :: Advanced End Users',
+                'Intended Audience :: End Users/Desktop',
                 'Intended Audience :: System Administrators',
-                'License :: OSI Approved :: GNU General Public License v3+',
+                'License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)',
                 'Operating System :: POSIX',
                 'Programming Language :: Python',
-                'Topic :: Jabber',
-                'Topic :: XMPP',
-                'Topic :: Monitoring'
+                'Topic :: Communications',
+                'Topic :: Internet',
+                'Topic :: System',
+                'Topic :: System :: Monitoring',
+                'Topic :: System :: Networking'
                 ],
     )
