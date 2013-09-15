@@ -1,65 +1,72 @@
-#pysysbot: A simple python jabber bot for getting system information
+pysysbot 
+========
+A simple python jabber bot for getting system information.
 
-This python jabber (XMPP) bot is based on the [jabberbot framework] 
-(http://thpinfo.com/2007/python-jabberbot/). The bot is capable to
-display details about the system it is running on. If you don't
-want or can stay connected through SSH all the time this is an easy
-way to get information about the remote system.
+This python jabber (XMPP) bot is based on the `jabberbot framework`_.The bot
+is capable to display details about the system it is running on. If you don't
+want or can stay connected through SSH all the time this is an easy way to get
+information about the remote system.
 
 This bot contains a lot of parts used in a German tutorial about the the
-jabberbot framework on http://www.swissjabber.org.
+jabberbot framework on `Swissjabber`_.
  
-##Goals
- 
+.. _jabberbot framework: http://thpinfo.com/2007/python-jabberbot/
+.. _Swissjabber: http://www.swissjabber.org
+
+Goals
+----- 
 - Show some information about the system
 - No need for a permanent SSH connection to the remote system
 - Can serve for many users
  
-##Requirements
+Requirements
+------------
  
-- python-jabberbot (http://thp.io/2007/python-jabberbot/)
-- pystatgrab (http://www.i-scream.org/pystatgrab/)
+- `python-jabberbot`_
+- `pystatgrab`_
 
-All dependencies are available in the Fedora Package Collection.
+All dependencies are available in the Fedora Package Collection.::
 
-```
-sudo yum -y install python-jabberbot pystatgrab
-```
+    sudo yum -y install python-jabberbot pystatgrab
 
-##Installation
+.. _python-jabberbot: 
+.. _pystatgrab: http://www.i-scream.org/pystatgrab/
 
-The packge will soon be available in the Fedora Package collection. Then
+Installation
+------------
 
-```
-sudo yum -y install pysysbot
-```
+The packge will soon be available in the Fedora Package collection. Then::
 
-Till then, clone the git repository to use it.
+    sudo yum -y install pysysbot
 
-```
-git clone https://gitorious.org/pysysbot
-```
+Till then, clone the git repository to use it.::
 
-##Usage
+    git clone https://gitorious.org/pysysbot
 
-Create a configuration file: `/etc/pysysbot/pysysbot.conf` with the following
+Usage
+-----
+
+Create a configuration file: ``/etc/pysysbot/pysysbot.conf`` with the following
 content or edit the file if you are running a release which is included in
-your distribution:
+your distribution::
 
-```
-[pysysbot]
-username = Your JID
-password = Your XMPP/Jabber password
-```
-You can run `pysysbot` from the command-line or as service with systemd.
+    [pysysbot]
+    username = Your JID
+    password = Your XMPP/Jabber password
 
-```
-sudo systemctl start pysysbot.service
-```
+You can run ``pysysbot`` from the command-line or as service with systemd.::
 
-##Resources
+    sudo systemctl start pysysbot.service
 
-- [Website](http://affolter-engineering.ch/pysysbot/)
-- [git repository](https://gitorious.org/pysysbot)
- 
-`pysysbot` is licensed under GPLv3+, for more details check COPYING. 
+Resources
+---------
+
+- `Website`_
+- `git repository`_
+- `Download`_
+
+.. _Website: http://affolter-engineering.ch/pysysbot/
+.. _git repository: https://github.com/fabaff/pysysbot
+.. _Download: 
+
+``pysysbot`` is licensed under GPLv3+, for more details check COPYING. 
