@@ -14,13 +14,12 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-
 from setuptools import setup
 
 if __name__ == '__main__':
     setup(
         name = 'pysysbot',
-        version="0.1",
+        version="0.1.1",
         description = 'Python based system jabber bot',
         long_description = """This python jabber (XMPP) bot is based on \
             the jabberbot framework (http://thpinfo.com/2007/python-jabberbot/).\
@@ -34,10 +33,9 @@ if __name__ == '__main__':
         license = 'GPLv3+',
         platforms = 'Linux',
         packages = ['pysysbot'],
-        scripts = ['bin/pysysbot'],
-#        entry_points = {
-#            'console_scripts': ['pysysbot = pysysbot:main']
-#        },
+        entry_points = {
+            'console_scripts': ['pysysbot = pysysbot.pysysbot:main']
+        },
         include_package_data = True,
         install_requires=[
         'pystatgrab',
@@ -46,7 +44,7 @@ if __name__ == '__main__':
         keywords = ['Jabber','XMPP','System','python'],
         classifiers = [
                 'Development Status :: 4 - Beta',
-                'Environment :: Console'
+                'Environment :: Console',
                 'Intended Audience :: End Users/Desktop',
                 'Intended Audience :: System Administrators',
                 'License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)',
