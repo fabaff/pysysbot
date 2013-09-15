@@ -67,6 +67,6 @@ Resources
 
 .. _Website: http://affolter-engineering.ch/pysysbot/
 .. _git repository: https://github.com/fabaff/pysysbot
-.. _Download: 
+.. _Download: https://github.com/fabaff/pysysbot/releases
 
 ``pysysbot`` is licensed under GPLv3+, for more details check COPYING. 
