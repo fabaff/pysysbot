@@ -1,0 +1,12 @@
+# Exclude compiled python files/modules
+*.pyc
+
+# Exclude the setuptools distribution folder
+/dist/
+
+# Exclude the build folder
+/build/
+
+# Exclude python egg metadata
+/*.egg-info
+/*.egg
