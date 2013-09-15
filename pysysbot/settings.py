@@ -15,7 +15,7 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
+#
 import os
 import sys
 import ConfigParser
@@ -25,6 +25,7 @@ def read_config(file, config_jabber={}):
     config_data = []
     if not(os.path.exists(file)):
         print 'pysysbot configuration file does not exist.'
+        sys.exit(0)
     else:
         configparse = ConfigParser.ConfigParser()
         configparse.read(file)
@@ -38,7 +39,5 @@ def read_config(file, config_jabber={}):
             print 'Please edit your configuration file (%s) and set your Jabber password' \
                 % (file)
             sys.exit(0)
-            
         config_data.append(config_jabber)
-
     return config_data
