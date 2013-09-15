@@ -1,4 +1,3 @@
-include AUTHORS COPYING ChangeLog README
-include bin/pysysbot
+include AUTHORS COPYING ChangeLog README.rst
 recursive-include data * 
 recursive-include man *
