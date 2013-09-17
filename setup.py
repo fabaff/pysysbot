@@ -19,7 +19,7 @@ from setuptools import setup
 if __name__ == '__main__':
     setup(
         name = 'pysysbot',
-        version="0.1.1",
+        version="0.1.2",
         description = 'Python based system jabber bot',
         long_description = """This python jabber (XMPP) bot is based on \
             the jabberbot framework (http://thpinfo.com/2007/python-jabberbot/).\
@@ -30,7 +30,7 @@ if __name__ == '__main__':
         maintainer = 'Fabian Affolter',
         maintainer_email = 'fabian@affolter-engineering.ch',
         url = 'http://affolter-engineering.ch/pysysbot/',
-        license = 'GPLv3+',
+        license = 'BSD',
         platforms = 'Linux',
         packages = ['pysysbot'],
         entry_points = {
@@ -38,7 +38,7 @@ if __name__ == '__main__':
         },
         include_package_data = True,
         install_requires=[
-        'pystatgrab',
+        'psutil',
         'jabberbot',
         ],
         keywords = ['Jabber','XMPP','System','python'],
@@ -47,7 +47,7 @@ if __name__ == '__main__':
                 'Environment :: Console',
                 'Intended Audience :: End Users/Desktop',
                 'Intended Audience :: System Administrators',
-                'License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)',
+                'License :: OSI Approved :: BSD License',
                 'Operating System :: POSIX',
                 'Programming Language :: Python',
                 'Topic :: Communications',
