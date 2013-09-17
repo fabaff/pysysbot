@@ -3,20 +3,7 @@
 # pysysbot - A simple python jabber bot for getting system information
 # Copyright (c) 2009-2013 Fabian Affolter <fabian at affolter-engineering.ch>
 #
-# All rights reserved.
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation; either version 3 of the License, or
-# (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+# Released under the BSD license. See COPYING file for details.
 #
 try:
     import datetime
@@ -25,14 +12,14 @@ try:
     import socket
     import ConfigParser
     import urllib2
-    import statgrab
+    import psutil
     from jabberbot import JabberBot, botcmd
     import settings
 except ImportError:
 	print """Cannot find all required libraries please install them and try again."""
 	raise SystemExit
 
-__version__ = '0.1.1'
+__version__ = '0.1.2'
 __author__ = 'Fabian Affolter <fabian@affolter-engineering.ch>'
 
 class pySysBot(JabberBot):
@@ -52,7 +39,7 @@ class pySysBot(JabberBot):
             __version__,
             '.'.join([str(v) for v in sys.version_info[:3]]),
             'Author: %s' % __author__,
-            'pysysbot is licensed under GPLv3+'
+            'pysysbot is licensed under BSD'
             )
         return version
 
@@ -110,53 +97,67 @@ class pySysBot(JabberBot):
 
     @botcmd
     def processes(self, mess, args):
-        """Shows the processes of the system."""
-        process = statgrab.sg_get_process_count()
-        load_process = "\nProcesses" + \
-                "\n" + " Zombie: \t\t"  + str(process['zombie']) + \
-                "\n" + " Running: \t"   + str(process['running']) + \
-                "\n" + " Stopped: \t"   + str(process['stopped']) + \
-                "\n" + " Sleeping: \t"  + str(process['sleeping']) + \
-                "\n" + " Total: \t\t"   + str(process['total'])
-        return load_process
+        """Shows the count of processes of the system."""
+        processes = psutil.get_pid_list()
+        return 'Running processes: %i' % (len(processes))
+
+    @botcmd
+    def disk(self, mess, args):
+        # Credits: https://code.google.com/p/psutil/source/browse/examples/disk_usage.py
+        """Details about the disk usage."""
+        templ = "%-35s %8s %8s %8s %5s%% %9s  %s\n"
+        disks = templ % ("Device", "Total", "Used", "Free", "Use ", "Type", "Mount")
+        for part in psutil.disk_partitions(all=False):
+            usage = psutil.disk_usage(part.mountpoint)
+            disks = disks + templ % (part.device,
+                            bytes2human(usage.total),
+                            bytes2human(usage.used),
+                            bytes2human(usage.free),
+                            int(usage.percent),
+                            part.fstype,
+                            part.mountpoint)
+        return disks
 
     @botcmd
     def mem(self, mess, args):
         """Memory status of the system."""
-        # Stolen from some 
-        swapstat = statgrab.sg_get_swap_stats()
-        memstat = statgrab.sg_get_mem_stats()
-        # Some calculation to get the perc of the data
-        memdiff = memstat['total'] - memstat['free']
-        memfloat = float (memdiff) / float(memstat['total'])
-        memperc = int(round (memfloat * 100))
-        swapdiff = swapstat['total'] - swapstat['free']
-        swapfloat = float (swapdiff) / float(swapstat['total'])
-        swapperc = int(round (swapfloat * 100))
-        mem_process = "\nMemory status" + \
-                "\n" + " Mem Total : \t" + str(memstat['total']/1048576) + \
-                " MB \t \t Swap Total : \t" + str(swapstat['total']/1048576) + \
-                " MB" + \
-                "\n" + " Mem Used : \t" + str(memstat['used']/1048576) + \
-                " MB \t \t Swap Used : \t" + str(swapstat['used']/1048576) + \
-                " MB" + \
-                "\n" + " Mem Free : \t" + str(memstat['free']/1048576)  + \
-                " MB \t \t \t Swap Free : \t" + str(swapstat['free']/1048576) + \
-                " MB" + "\n" + " Mem Used : \t" + str(memperc) + " %" + \
-                " \t \t \t Swap Used : \t" + str(swapperc) + " %" 
-        return mem_process
+        vmem = psutil.virtual_memory()
+        swap = psutil.swap_memory()
+        mem = "\nMemory status" + \
+                "\n" + " Mem total  : \t" + bytes2human(vmem[0]) + \
+                "\t Swap total : \t" + bytes2human(swap[0]) + \
+                "\n" + " Mem used   : \t" + bytes2human((vmem[0] - vmem[1])) + \
+                "\t Swap used  : \t" + bytes2human(swap[1]) + \
+                "\n" + " Mem avail. : \t" + bytes2human(vmem[1]) + \
+                "\t Swap free  : \t" + bytes2human(swap[2]) + \
+                "\n" + " Mem used   : \t" + str(vmem[2]) + " %" + \
+                " \t Swap used  : \t" + str(swap[3]) + " %"
+        return mem
 
-#    @botcmd
-#    def ip(self, mess, args):
-#        """Displays the IP Addresses of the server."""
-#        # Source: http://commandline.org.uk/python/how-to-find-out-ip-address-in-python/
-#        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-#        s.connect(('google.com', 0))
-#        int_ipaddr = s.getsockname()[0]
-#        ext_ipaddr = urllib2.urlopen("http://automation.whatismyip.com/n09230945.asp").read()
-#        data_ipaddr = "\nInternal IP address: \t" + int_ipaddr + \
-#               "\n" +"External IP address: \t" + ext_ipaddr
-#        return data_ipaddr
+    @botcmd
+    def who(self, mess, args):
+        """Information about users who are currently logged in."""
+        users = psutil.get_users()
+        who = '\n'
+        for user in users:
+            who = who + '%-10s %-10s %s  (%s)\n' % \
+                    (user.name,
+                    user.terminal or '-',
+                    datetime.datetime.fromtimestamp(user.started).strftime("%Y-%m-%d %H:%M"),
+                    user.host)
+        return who
+
+def bytes2human(n):
+    # Credits: http://code.activestate.com/recipes/578019
+    symbols = ('K', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y')
+    prefix = {}
+    for i, s in enumerate(symbols):
+        prefix[s] = 1 << (i + 1) * 10
+    for s in reversed(symbols):
+        if n >= prefix[s]:
+            value = float(n) / prefix[s]
+            return '%.1f%s' % (value, s)
+    return "%sB" % n
 
 def main():
     config = settings.read_config('/etc/pysysbot/pysysbot.conf')
