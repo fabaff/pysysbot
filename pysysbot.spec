@@ -1,11 +1,11 @@
 name:           pysysbot
-Version:        0.1
+Version:        0.1.2
 Release:        1%{?dist}
 Summary:        A simple python jabber bot for getting system information
 
-License:        GPLv3+
-URL:            http://affolter-engineering.ch/software-development/jabber-bots/
-Source0:        http://files.affolter-engineering.ch/%{name}/%{name}-%{version}.tar.bz2
+License:        BSD
+URL:            http://affolter-engineering.ch/pysysbot
+Source0:        https://pypi.python.org/packages/source/p/%{name}/%{name}-%{version}.tar.gz
 BuildArch:      noarch
 
 BuildRequires:  python2-devel
@@ -13,7 +13,7 @@ BuildRequires:  python-setuptools
 BuildRequires:  systemd
 
 Requires:         python-jabberbot
-Requires:         pystatgrab
+Requires:         python-psutil
 Requires(post):   systemd
 Requires(preun):  systemd
 Requires(postun): systemd
@@ -29,10 +29,10 @@ get information about the remote system.
 rm -rf *.egg-info
 
 %build
-%{__python} setup.py build
+%{__python2} setup.py build
 
 %install
-%{__python} setup.py install --skip-build --root="%{buildroot}"
+%{__python2} setup.py install --skip-build --root="%{buildroot}"
 install -Dp -m 0644 data/%{name}.service %{buildroot}%{_unitdir}/%{name}.service
 install -Dp -m 0644 data/%{name}.conf %{buildroot}%{_sysconfdir}/%{name}/%{name}.conf
 install -Dp -m 0644 man/%{name}.1 %{buildroot}%{_mandir}/man1/%{name}.1
@@ -48,14 +48,23 @@ rm -rf %{buildroot}%{_defaultdocdir}
 %systemd_postun_with_restart %{name}.service
 
 %files
-%doc AUTHORS ChangeLog COPYING README
+%doc AUTHORS ChangeLog COPYING README.rst
 %{_mandir}/man*/%{name}*.*
 %{_bindir}/%{name}
 %config(noreplace) %{_sysconfdir}/%{name}/%{name}.conf
 %{_unitdir}/%{name}.service
-%{python_sitelib}/*
+%{python2_sitelib}/*
 
 %changelog
+* Tue Sep 17 2013 Fabian Affolter <mail@fabian-affolter.ch> - 0.1.2-1
+- Requirements updated
+- License updated
+- Updated to new upstream release 0.1.2
+
+* Sun Sep 15 2013 Fabian Affolter <mail@fabian-affolter.ch> - 0.1.1-1
+- New download location
+- Updated to new upstream release 0.1.1
+
 * Tue Sep 03 2013 Fabian Affolter <mail@fabian-affolter.ch> - 0.1-1
 - Simplified configuration file handling
 - Updated to new upstream release 0.1
