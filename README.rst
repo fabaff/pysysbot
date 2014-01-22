@@ -23,14 +23,14 @@ Requirements
 ------------
  
 - `python-jabberbot`_
-- `pystatgrab`_
+- `psutil`_
 
 All dependencies are available in the Fedora Package Collection.::
 
-    sudo yum -y install python-jabberbot pystatgrab
+    sudo yum -y install python-jabberbot python-psutil
 
-.. _python-jabberbot: 
-.. _pystatgrab: http://www.i-scream.org/pystatgrab/
+.. _python-jabberbot: http://thp.io/2007/python-jabberbot/
+.. _pystatgrab: http://code.google.com/p/psutil/
 
 Installation
 ------------
