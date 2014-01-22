@@ -69,4 +69,4 @@ Resources
 .. _git repository: https://github.com/fabaff/pysysbot
 .. _Download: https://github.com/fabaff/pysysbot/releases
 
-``pysysbot`` is licensed under GPLv3+, for more details check COPYING. 
+``pysysbot`` is licensed under BSD, for more details check COPYING. 
