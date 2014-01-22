@@ -1,25 +1,16 @@
+# This file is part of pysysbot.
+#
 # pysysbot - A simple python jabber bot for getting system information
-# Copyright (c) 2009-2011 Fabian Affolter <fabian@affolter-engineering.ch>
+# Copyright (c) 2009-2014 Fabian Affolter <fabian at affolter-engineering.ch>
 #
-# All rights reserved.
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+# Released under the BSD license. See COPYING file for details.
 #
 from setuptools import setup
 
 if __name__ == '__main__':
     setup(
         name = 'pysysbot',
-        version="0.1.2",
+        version="0.1.3",
         description = 'Python based system jabber bot',
         long_description = """This python jabber (XMPP) bot is based on \
             the jabberbot framework (http://thpinfo.com/2007/python-jabberbot/).\
