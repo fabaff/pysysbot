@@ -41,7 +41,7 @@ The packge will soon be available in the Fedora Package collection. Then::
 
 Till then, clone the git repository to use it.::
 
-    git clone https://gitorious.org/pysysbot
+    git clone https://github.com/fabaff/pysysbot
 
 Usage
 -----
