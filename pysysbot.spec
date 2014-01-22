@@ -1,5 +1,5 @@
 name:           pysysbot
-Version:        0.1.2
+Version:        0.1.3
 Release:        1%{?dist}
 Summary:        A simple python jabber bot for getting system information
 
@@ -56,27 +56,31 @@ rm -rf %{buildroot}%{_defaultdocdir}
 %{python2_sitelib}/*
 
 %changelog
+* Wed Jan 22 2014 Fabian Affolter <mail@fabian-affolter.ch> - 0.1.3-1
+- License update
+- Update to new upstream release 0.1.3
+
 * Tue Sep 17 2013 Fabian Affolter <mail@fabian-affolter.ch> - 0.1.2-1
-- Requirements updated
-- License updated
-- Updated to new upstream release 0.1.2
+- Update requirements
+- License update
+- Update to new upstream release 0.1.2
 
 * Sun Sep 15 2013 Fabian Affolter <mail@fabian-affolter.ch> - 0.1.1-1
 - New download location
-- Updated to new upstream release 0.1.1
+- Update to new upstream release 0.1.1
 
 * Tue Sep 03 2013 Fabian Affolter <mail@fabian-affolter.ch> - 0.1-1
 - Simplified configuration file handling
-- Updated to new upstream release 0.1
+- Update to new upstream release 0.1
 
 * Tue Sep 03 2013 Fabian Affolter <mail@fabian-affolter.ch> - 0.0.5-1
-- man page added
-- systemd macros added
-- Updated to new upstream release 0.0.5
+- Man page added
+- Add systemd macros
+- Update to new upstream release 0.0.5
 
 * Thu May 30 2013 Fabian Affolter <mail@fabian-affolter.ch> - 0.0.4-1
-- Spec file updated
-- Updated to new upstream release 0.0.4
+- Update spec file
+- Update to new upstream release 0.0.4
 
 * Wed Jun 29 2011 Fabian Affolter <mail@fabian-affolter.ch> - 0.0.1-1
 - Initial spec for Fedora
