@@ -29,8 +29,8 @@ if __name__ == '__main__':
         },
         include_package_data = True,
         install_requires=[
-        'psutil',
-        'jabberbot',
+            'psutil',
+            'jabberbot',
         ],
         keywords = ['Jabber','XMPP','System','python'],
         classifiers = [
