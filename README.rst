@@ -30,7 +30,7 @@ All dependencies are available in the Fedora Package Collection.::
     sudo yum -y install python-jabberbot python-psutil
 
 .. _python-jabberbot: http://thp.io/2007/python-jabberbot/
-.. _pystatgrab: http://code.google.com/p/psutil/
+.. _psutil: http://code.google.com/p/psutil/
 
 Installation
 ------------
