@@ -10,7 +10,7 @@ from setuptools import setup
 if __name__ == '__main__':
     setup(
         name = 'pysysbot',
-        version="0.1.3",
+        version="0.2.0",
         description = 'Python based system jabber bot',
         long_description = """This python jabber (XMPP) bot is based on \
             the jabberbot framework (http://thpinfo.com/2007/python-jabberbot/).\

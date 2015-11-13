@@ -19,7 +19,7 @@ except ImportError:
 	print('Cannot find all required libraries please install them and try again.')
 	raise SystemExit
 
-__version__ = '0.1.3'
+__version__ = '0.2.0'
 __author__ = 'Fabian Affolter <fabian@affolter-engineering.ch>'
 
 class pySysBot(JabberBot):
