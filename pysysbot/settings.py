@@ -1,5 +1,5 @@
 # pysysbot - A simple python jabber bot for getting system information
-# Copyright (c) 2009-2013 Fabian Affolter <fabian@affolter-engineering.ch>
+# Copyright (c) 2009-2015 Fabian Affolter <fabian@affolter-engineering.ch>
 #
 # Released under the BSD license. See COPYING file for details.
 #

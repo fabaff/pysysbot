@@ -1,7 +1,7 @@
 # This file is part of pysysbot.
 #
 # pysysbot - A simple python jabber bot for getting system information
-# Copyright (c) 2009-2014 Fabian Affolter <fabian at affolter-engineering.ch>
+# Copyright (c) 2009-2015 Fabian Affolter <fabian at affolter-engineering.ch>
 #
 # Released under the BSD license. See COPYING file for details.
 #
@@ -19,7 +19,7 @@ except ImportError:
 	print """Cannot find all required libraries please install them and try again."""
 	raise SystemExit
 
-__version__ = '0.1.2'
+__version__ = '0.1.3'
 __author__ = 'Fabian Affolter <fabian@affolter-engineering.ch>'
 
 class pySysBot(JabberBot):
