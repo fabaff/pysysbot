@@ -16,7 +16,7 @@ try:
     from jabberbot import JabberBot, botcmd
     import settings
 except ImportError:
-	print """Cannot find all required libraries please install them and try again."""
+	print('Cannot find all required libraries please install them and try again.')
 	raise SystemExit
 
 __version__ = '0.1.3'
@@ -28,13 +28,13 @@ class pySysBot(JabberBot):
     information of the machine it is running on.
     """
     def top_of_help_message(self):
-        """Returns a string that forms the top of the help message."""
+        """ Returns a string that forms the top of the help message. """
         return "pySysBot\n\n"
 
 #Bot commands
     @botcmd
     def version(self, mess, args):
-        """Details about the bot."""
+        """ Details about the bot. """
         version = '\n%s %s with Python %s\n%s\n%s' % (self.__class__.__name__,
             __version__,
             '.'.join([str(v) for v in sys.version_info[:3]]),
@@ -57,7 +57,7 @@ class pySysBot(JabberBot):
 
     @botcmd
     def uptime(self, mess, args):
-        """The uptime of the system."""
+        """ The uptime of the system. """
         uptime = open('/proc/uptime').read().split()[0]
         # This is heavily based on the work of Hubert Chathi and his System status bot.
         uptime = float(uptime)
@@ -72,7 +72,7 @@ class pySysBot(JabberBot):
 
     @botcmd
     def system(self, mess, args):
-        """Displays details about system."""
+        """ Displays details about system. """
         system = os.uname()
         system_data = "\nSystem information" + \
                 "\n" + " Type:     " + system[0] + \
@@ -84,7 +84,7 @@ class pySysBot(JabberBot):
 
     @botcmd
     def load(self, mess, args):
-        """Displays the system load over the last 1, 5, and 15 minutes."""
+        """ Displays the system load over the last 1, 5, and 15 minutes. """
         loaddata = []
         load = os.getloadavg()
         for i in load:
@@ -97,14 +97,14 @@ class pySysBot(JabberBot):
 
     @botcmd
     def processes(self, mess, args):
-        """Shows the count of processes of the system."""
+        """ Shows the count of processes of the system. """
         processes = psutil.get_pid_list()
         return 'Running processes: %i' % (len(processes))
 
     @botcmd
     def disk(self, mess, args):
         # Credits: https://code.google.com/p/psutil/source/browse/examples/disk_usage.py
-        """Details about the disk usage."""
+        """ Details about the disk usage. """
         templ = "%-35s %8s %8s %8s %5s%% %9s  %s\n"
         disks = templ % ("Device", "Total", "Used", "Free", "Use ", "Type", "Mount")
         for part in psutil.disk_partitions(all=False):
@@ -120,7 +120,7 @@ class pySysBot(JabberBot):
 
     @botcmd
     def mem(self, mess, args):
-        """Memory status of the system."""
+        """ Memory status of the system. """
         vmem = psutil.virtual_memory()
         swap = psutil.swap_memory()
         mem = "\nMemory status" + \
@@ -136,7 +136,7 @@ class pySysBot(JabberBot):
 
     @botcmd
     def who(self, mess, args):
-        """Information about users who are currently logged in."""
+        """ Information about users who are currently logged in. """
         users = psutil.get_users()
         who = '\n'
         for user in users:
