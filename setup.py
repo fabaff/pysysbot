@@ -45,6 +45,5 @@ if __name__ == '__main__':
                 'Topic :: Internet',
                 'Topic :: System',
                 'Topic :: System :: Monitoring',
-                'Topic :: System :: Networking'
                 ],
     )

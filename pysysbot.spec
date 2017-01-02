@@ -51,7 +51,7 @@ rm -rf %{buildroot}%{_defaultdocdir}
 %doc AUTHORS ChangeLog COPYING README.rst
 %{_mandir}/man*/%{name}*.*
 %{_bindir}/%{name}
-%config(noreplace) %{_sysconfdir}/%{name}/%{name}.conf
+%config(noreplace) %{_sysconfdir}/%{name}/
 %{_unitdir}/%{name}.service
 %{python2_sitelib}/*
 
