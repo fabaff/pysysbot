@@ -2,7 +2,7 @@ pysysbot
 ========
 A simple python jabber bot for getting system information.
 
-This python jabber (XMPP) bot is based on the `jabberbot framework`_.The bot
+This Python jabber (XMPP) bot is based on the `slimxmpp framework`_. The bot
 is capable to display details about the system it is running on. If you don't
 want or can stay connected through SSH all the time this is an easy way to get
 information about the remote system.
@@ -10,7 +10,7 @@ information about the remote system.
 This bot contains a lot of parts used in a German tutorial about the the
 jabberbot framework on `Swissjabber`_.
  
-.. _jabberbot framework: http://thpinfo.com/2007/python-jabberbot/
+.. _slimxmpp framework: https://slixmpp.readthedocs.io
 .. _Swissjabber: http://www.swissjabber.org
 
 Goals
@@ -22,22 +22,22 @@ Goals
 Requirements
 ------------
  
-- `python-jabberbot`_
+- `slimxmpp`_
 - `psutil`_
 
 All dependencies are available in the Fedora Package Collection.::
 
-    sudo yum -y install python-jabberbot python-psutil
+    sudo dnf -y install python3-slimxmpp python3-psutil
 
-.. _python-jabberbot: http://thp.io/2007/python-jabberbot/
-.. _psutil: http://code.google.com/p/psutil/
+.. _slimxmpp: https://slixmpp.readthedocs.io
+.. _psutil: https://psutil.readthedocs.io
 
 Installation
 ------------
 
-The packge will soon be available in the Fedora Package collection. Then::
+The package is available in the Fedora Package collection. Then::
 
-    sudo yum -y install pysysbot
+    sudo dnf -y install pysysbot
 
 Till then, clone the git repository to use it.::
 
