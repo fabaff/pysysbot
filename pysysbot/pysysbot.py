@@ -1,9 +1,7 @@
 """Main part of pysysbot."""
-import asyncio
 import logging
+
 from slixmpp import ClientXMPP
-
-
 
 from . import settings
 from .replies import version, kernel, time, uptime, system, load, processes,\
@@ -67,11 +65,6 @@ def main():
     xmpp = SysBot(config[0]['username'], config[0]['password'])
     xmpp.connect()
     xmpp.process()
-
-
-
- #   bot = pySysBot(config[0]['username'], config[0]['password'], debug=False)
- #   bot.serve_forever()
 
 
 if __name__ == '__main__':
