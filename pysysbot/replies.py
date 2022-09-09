@@ -97,7 +97,7 @@ def load():
 
 def processes():
     """Show the count of processes of the system."""
-    processes = psutil.get_pid_list()
+    processes = psutil.pids()
     return "Running processes: {}".format(len(processes))
 
 
